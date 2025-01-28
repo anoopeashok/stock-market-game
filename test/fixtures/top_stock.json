@@ -1,0 +1,55 @@
+{
+  "last_updated": "2024-12-26T18:57:00.098792759Z",
+  "most_actives": [
+    {
+      "symbol": "SPRC",
+      "trade_count": 372340,
+      "volume": 223630165
+    },
+    {
+      "symbol": "XTIA",
+      "trade_count": 40549,
+      "volume": 209997883
+    },
+    {
+      "symbol": "COEP",
+      "trade_count": 150715,
+      "volume": 194668217
+    },
+    {
+      "symbol": "SES",
+      "trade_count": 272377,
+      "volume": 177917922
+    },
+    {
+      "symbol": "RGTI",
+      "trade_count": 681787,
+      "volume": 162433995
+    },
+    {
+      "symbol": "SMX",
+      "trade_count": 138220,
+      "volume": 159487987
+    },
+    {
+      "symbol": "LAES",
+      "trade_count": 551625,
+      "volume": 137395926
+    },
+    {
+      "symbol": "AIRE",
+      "trade_count": 496545,
+      "volume": 113219032
+    },
+    {
+      "symbol": "SOUN",
+      "trade_count": 407602,
+      "volume": 104458677
+    },
+    {
+      "symbol": "KULR",
+      "trade_count": 227047,
+      "volume": 89434986
+    }
+  ]
+}
