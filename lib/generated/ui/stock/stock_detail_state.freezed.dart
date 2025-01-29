@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$StockDetailState {
   List<double> get stockprices => throw _privateConstructorUsedError;
-  CompanyStockInformation? get companyInformation =>
+  CompanyInformation? get companyInformation =>
       throw _privateConstructorUsedError;
   bool get isInitalLoading => throw _privateConstructorUsedError;
   bool get barLoading => throw _privateConstructorUsedError;
@@ -39,13 +39,13 @@ abstract class $StockDetailStateCopyWith<$Res> {
   @useResult
   $Res call(
       {List<double> stockprices,
-      CompanyStockInformation? companyInformation,
+      CompanyInformation? companyInformation,
       bool isInitalLoading,
       bool barLoading,
       bool isError,
       String? error});
 
-  $CompanyStockInformationCopyWith<$Res>? get companyInformation;
+  $CompanyInformationCopyWith<$Res>? get companyInformation;
 }
 
 /// @nodoc
@@ -78,7 +78,7 @@ class _$StockDetailStateCopyWithImpl<$Res, $Val extends StockDetailState>
       companyInformation: freezed == companyInformation
           ? _value.companyInformation
           : companyInformation // ignore: cast_nullable_to_non_nullable
-              as CompanyStockInformation?,
+              as CompanyInformation?,
       isInitalLoading: null == isInitalLoading
           ? _value.isInitalLoading
           : isInitalLoading // ignore: cast_nullable_to_non_nullable
@@ -102,12 +102,12 @@ class _$StockDetailStateCopyWithImpl<$Res, $Val extends StockDetailState>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $CompanyStockInformationCopyWith<$Res>? get companyInformation {
+  $CompanyInformationCopyWith<$Res>? get companyInformation {
     if (_value.companyInformation == null) {
       return null;
     }
 
-    return $CompanyStockInformationCopyWith<$Res>(_value.companyInformation!,
+    return $CompanyInformationCopyWith<$Res>(_value.companyInformation!,
         (value) {
       return _then(_value.copyWith(companyInformation: value) as $Val);
     });
@@ -124,14 +124,14 @@ abstract class _$$StockDetailStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {List<double> stockprices,
-      CompanyStockInformation? companyInformation,
+      CompanyInformation? companyInformation,
       bool isInitalLoading,
       bool barLoading,
       bool isError,
       String? error});
 
   @override
-  $CompanyStockInformationCopyWith<$Res>? get companyInformation;
+  $CompanyInformationCopyWith<$Res>? get companyInformation;
 }
 
 /// @nodoc
@@ -162,7 +162,7 @@ class __$$StockDetailStateImplCopyWithImpl<$Res>
       companyInformation: freezed == companyInformation
           ? _value.companyInformation
           : companyInformation // ignore: cast_nullable_to_non_nullable
-              as CompanyStockInformation?,
+              as CompanyInformation?,
       isInitalLoading: null == isInitalLoading
           ? _value.isInitalLoading
           : isInitalLoading // ignore: cast_nullable_to_non_nullable
@@ -206,7 +206,7 @@ class _$StockDetailStateImpl extends _StockDetailState {
   }
 
   @override
-  final CompanyStockInformation? companyInformation;
+  final CompanyInformation? companyInformation;
   @override
   @JsonKey()
   final bool isInitalLoading;
@@ -264,7 +264,7 @@ class _$StockDetailStateImpl extends _StockDetailState {
 abstract class _StockDetailState extends StockDetailState {
   const factory _StockDetailState(
       {final List<double> stockprices,
-      final CompanyStockInformation? companyInformation,
+      final CompanyInformation? companyInformation,
       final bool isInitalLoading,
       final bool barLoading,
       final bool isError,
@@ -274,7 +274,7 @@ abstract class _StockDetailState extends StockDetailState {
   @override
   List<double> get stockprices;
   @override
-  CompanyStockInformation? get companyInformation;
+  CompanyInformation? get companyInformation;
   @override
   bool get isInitalLoading;
   @override

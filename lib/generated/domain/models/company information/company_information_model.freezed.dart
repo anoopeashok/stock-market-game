@@ -14,13 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-CompanyStockInformation _$CompanyStockInformationFromJson(
-    Map<String, dynamic> json) {
-  return _CompanyStockInformation.fromJson(json);
+CompanyInformation _$CompanyInformationFromJson(Map<String, dynamic> json) {
+  return _CompanyInformation.fromJson(json);
 }
 
 /// @nodoc
-mixin _$CompanyStockInformation {
+mixin _$CompanyInformation {
   @JsonKey(name: 'Symbol')
   String get symbol => throw _privateConstructorUsedError;
   @JsonKey(name: 'Name')
@@ -60,21 +59,21 @@ mixin _$CompanyStockInformation {
   @JsonKey(name: 'DividendDate')
   String get dividendDate => throw _privateConstructorUsedError;
 
-  /// Serializes this CompanyStockInformation to a JSON map.
+  /// Serializes this CompanyInformation to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of CompanyStockInformation
+  /// Create a copy of CompanyInformation
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $CompanyStockInformationCopyWith<CompanyStockInformation> get copyWith =>
+  $CompanyInformationCopyWith<CompanyInformation> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CompanyStockInformationCopyWith<$Res> {
-  factory $CompanyStockInformationCopyWith(CompanyStockInformation value,
-          $Res Function(CompanyStockInformation) then) =
-      _$CompanyStockInformationCopyWithImpl<$Res, CompanyStockInformation>;
+abstract class $CompanyInformationCopyWith<$Res> {
+  factory $CompanyInformationCopyWith(
+          CompanyInformation value, $Res Function(CompanyInformation) then) =
+      _$CompanyInformationCopyWithImpl<$Res, CompanyInformation>;
   @useResult
   $Res call(
       {@JsonKey(name: 'Symbol') String symbol,
@@ -99,17 +98,16 @@ abstract class $CompanyStockInformationCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CompanyStockInformationCopyWithImpl<$Res,
-        $Val extends CompanyStockInformation>
-    implements $CompanyStockInformationCopyWith<$Res> {
-  _$CompanyStockInformationCopyWithImpl(this._value, this._then);
+class _$CompanyInformationCopyWithImpl<$Res, $Val extends CompanyInformation>
+    implements $CompanyInformationCopyWith<$Res> {
+  _$CompanyInformationCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of CompanyStockInformation
+  /// Create a copy of CompanyInformation
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -216,12 +214,11 @@ class _$CompanyStockInformationCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$CompanyStockInformationImplCopyWith<$Res>
-    implements $CompanyStockInformationCopyWith<$Res> {
-  factory _$$CompanyStockInformationImplCopyWith(
-          _$CompanyStockInformationImpl value,
-          $Res Function(_$CompanyStockInformationImpl) then) =
-      __$$CompanyStockInformationImplCopyWithImpl<$Res>;
+abstract class _$$CompanyInformationImplCopyWith<$Res>
+    implements $CompanyInformationCopyWith<$Res> {
+  factory _$$CompanyInformationImplCopyWith(_$CompanyInformationImpl value,
+          $Res Function(_$CompanyInformationImpl) then) =
+      __$$CompanyInformationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -247,16 +244,14 @@ abstract class _$$CompanyStockInformationImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CompanyStockInformationImplCopyWithImpl<$Res>
-    extends _$CompanyStockInformationCopyWithImpl<$Res,
-        _$CompanyStockInformationImpl>
-    implements _$$CompanyStockInformationImplCopyWith<$Res> {
-  __$$CompanyStockInformationImplCopyWithImpl(
-      _$CompanyStockInformationImpl _value,
-      $Res Function(_$CompanyStockInformationImpl) _then)
+class __$$CompanyInformationImplCopyWithImpl<$Res>
+    extends _$CompanyInformationCopyWithImpl<$Res, _$CompanyInformationImpl>
+    implements _$$CompanyInformationImplCopyWith<$Res> {
+  __$$CompanyInformationImplCopyWithImpl(_$CompanyInformationImpl _value,
+      $Res Function(_$CompanyInformationImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CompanyStockInformation
+  /// Create a copy of CompanyInformation
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -281,7 +276,7 @@ class __$$CompanyStockInformationImplCopyWithImpl<$Res>
     Object? weekLow52 = null,
     Object? dividendDate = null,
   }) {
-    return _then(_$CompanyStockInformationImpl(
+    return _then(_$CompanyInformationImpl(
       symbol: null == symbol
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
@@ -364,8 +359,8 @@ class __$$CompanyStockInformationImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CompanyStockInformationImpl implements _CompanyStockInformation {
-  const _$CompanyStockInformationImpl(
+class _$CompanyInformationImpl implements _CompanyInformation {
+  const _$CompanyInformationImpl(
       {@JsonKey(name: 'Symbol') required this.symbol,
       @JsonKey(name: 'Name') required this.name,
       @JsonKey(name: 'Description') required this.description,
@@ -386,8 +381,8 @@ class _$CompanyStockInformationImpl implements _CompanyStockInformation {
       @JsonKey(name: '52WeekLow') required this.weekLow52,
       @JsonKey(name: 'DividendDate') required this.dividendDate});
 
-  factory _$CompanyStockInformationImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CompanyStockInformationImplFromJson(json);
+  factory _$CompanyInformationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CompanyInformationImplFromJson(json);
 
   @override
   @JsonKey(name: 'Symbol')
@@ -449,14 +444,14 @@ class _$CompanyStockInformationImpl implements _CompanyStockInformation {
 
   @override
   String toString() {
-    return 'CompanyStockInformation(symbol: $symbol, name: $name, description: $description, exchange: $exchange, currency: $currency, sector: $sector, industry: $industry, marketCapitalization: $marketCapitalization, peRatio: $peRatio, dividendPerShare: $dividendPerShare, dividendYield: $dividendYield, eps: $eps, profitMargin: $profitMargin, returnOnEquity: $returnOnEquity, revenue: $revenue, analystTargetPrice: $analystTargetPrice, weekHigh52: $weekHigh52, weekLow52: $weekLow52, dividendDate: $dividendDate)';
+    return 'CompanyInformation(symbol: $symbol, name: $name, description: $description, exchange: $exchange, currency: $currency, sector: $sector, industry: $industry, marketCapitalization: $marketCapitalization, peRatio: $peRatio, dividendPerShare: $dividendPerShare, dividendYield: $dividendYield, eps: $eps, profitMargin: $profitMargin, returnOnEquity: $returnOnEquity, revenue: $revenue, analystTargetPrice: $analystTargetPrice, weekHigh52: $weekHigh52, weekLow52: $weekLow52, dividendDate: $dividendDate)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CompanyStockInformationImpl &&
+            other is _$CompanyInformationImpl &&
             (identical(other.symbol, symbol) || other.symbol == symbol) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
@@ -516,25 +511,25 @@ class _$CompanyStockInformationImpl implements _CompanyStockInformation {
         dividendDate
       ]);
 
-  /// Create a copy of CompanyStockInformation
+  /// Create a copy of CompanyInformation
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$CompanyStockInformationImplCopyWith<_$CompanyStockInformationImpl>
-      get copyWith => __$$CompanyStockInformationImplCopyWithImpl<
-          _$CompanyStockInformationImpl>(this, _$identity);
+  _$$CompanyInformationImplCopyWith<_$CompanyInformationImpl> get copyWith =>
+      __$$CompanyInformationImplCopyWithImpl<_$CompanyInformationImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CompanyStockInformationImplToJson(
+    return _$$CompanyInformationImplToJson(
       this,
     );
   }
 }
 
-abstract class _CompanyStockInformation implements CompanyStockInformation {
-  const factory _CompanyStockInformation(
+abstract class _CompanyInformation implements CompanyInformation {
+  const factory _CompanyInformation(
       {@JsonKey(name: 'Symbol') required final String symbol,
       @JsonKey(name: 'Name') required final String name,
       @JsonKey(name: 'Description') required final String description,
@@ -556,10 +551,10 @@ abstract class _CompanyStockInformation implements CompanyStockInformation {
       @JsonKey(name: '52WeekHigh') required final String weekHigh52,
       @JsonKey(name: '52WeekLow') required final String weekLow52,
       @JsonKey(name: 'DividendDate')
-      required final String dividendDate}) = _$CompanyStockInformationImpl;
+      required final String dividendDate}) = _$CompanyInformationImpl;
 
-  factory _CompanyStockInformation.fromJson(Map<String, dynamic> json) =
-      _$CompanyStockInformationImpl.fromJson;
+  factory _CompanyInformation.fromJson(Map<String, dynamic> json) =
+      _$CompanyInformationImpl.fromJson;
 
   @override
   @JsonKey(name: 'Symbol')
@@ -619,10 +614,10 @@ abstract class _CompanyStockInformation implements CompanyStockInformation {
   @JsonKey(name: 'DividendDate')
   String get dividendDate;
 
-  /// Create a copy of CompanyStockInformation
+  /// Create a copy of CompanyInformation
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CompanyStockInformationImplCopyWith<_$CompanyStockInformationImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$CompanyInformationImplCopyWith<_$CompanyInformationImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

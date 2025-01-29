@@ -2,7 +2,7 @@ import 'package:stock_market_game/domain/models/company%20information/company_in
 
 class StockDetail {
   List<double> prices;
-  CompanyStockInformation companyStockInformation;
+  CompanyInformation companyStockInformation;
 
   StockDetail({required this.companyStockInformation, required this.prices});
 }

@@ -18,11 +18,11 @@ class CompanyInformationRepository {
       : _repositoryHelper = repositoryHelper;
 
 
-  Future<Result<CompanyStockInformation>> getCompanyStockInformation(
+  Future<Result<CompanyInformation>> getCompanyInformation(
       String symbol) async {
     String endpoint = '&function=OVERVIEW&symbol=$symbol';
     return await _repositoryHelper.fetchData(
         endpoint: endpoint,
-        fromJson: (json) => CompanyStockInformation.fromJson(json));
+        fromJson: (json) => CompanyInformation.fromJson(json));
   }
 }

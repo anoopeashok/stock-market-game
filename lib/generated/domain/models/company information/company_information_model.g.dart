@@ -6,9 +6,9 @@ part of '../../../../domain/models/company information/company_information_model
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CompanyStockInformationImpl _$$CompanyStockInformationImplFromJson(
+_$CompanyInformationImpl _$$CompanyInformationImplFromJson(
         Map<String, dynamic> json) =>
-    _$CompanyStockInformationImpl(
+    _$CompanyInformationImpl(
       symbol: json['Symbol'] as String,
       name: json['Name'] as String,
       description: json['Description'] as String,
@@ -30,8 +30,8 @@ _$CompanyStockInformationImpl _$$CompanyStockInformationImplFromJson(
       dividendDate: json['DividendDate'] as String,
     );
 
-Map<String, dynamic> _$$CompanyStockInformationImplToJson(
-        _$CompanyStockInformationImpl instance) =>
+Map<String, dynamic> _$$CompanyInformationImplToJson(
+        _$CompanyInformationImpl instance) =>
     <String, dynamic>{
       'Symbol': instance.symbol,
       'Name': instance.name,

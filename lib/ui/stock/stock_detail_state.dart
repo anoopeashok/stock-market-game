@@ -7,7 +7,7 @@ part '../../generated/ui/stock/stock_detail_state.freezed.dart';
 abstract class StockDetailState with _$StockDetailState{
   const factory StockDetailState({
     @Default([]) List<double> stockprices,
-    CompanyStockInformation? companyInformation,
+    CompanyInformation? companyInformation,
     @Default(true) bool isInitalLoading,
     @Default(false) bool barLoading,
     @Default(false) bool isError,

@@ -1,15 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
-enum TimeFrame{
-  daily,
-  weekly,
-  monthly,
-  halfyear,
-  yearly
-  
-}
+enum TimeFrame { daily, weekly, monthly, halfyear, yearly }
 
 class StockInformationRequest extends Equatable {
   final String _symbol;
@@ -22,37 +16,44 @@ class StockInformationRequest extends Equatable {
 
   String get startDate {
     final currentDate = DateTime.now();
+    DateTime startDate;
     switch (_timeFrame) {
       case TimeFrame.daily:
-        return currentDate.subtract(Duration(days: 1)).toString();
+        startDate = currentDate.subtract(Duration(days: 1));
+        break;
       case TimeFrame.weekly:
-        return currentDate.subtract(Duration(days: 5)).toString();
+        startDate = currentDate.subtract(Duration(days: 5));
+        break;
       case TimeFrame.monthly:
-        return currentDate.subtract(Duration(days: 30)).toString();
+        startDate = currentDate.subtract(Duration(days: 30));
+        break;
       case TimeFrame.halfyear:
-        return currentDate.subtract(Duration(days: 180)).toString();
+        startDate = currentDate.subtract(Duration(days: 180));
+        break;
       case TimeFrame.yearly:
-        return currentDate.subtract(Duration(days: 365)).toString();
+        startDate = currentDate.subtract(Duration(days: 365));
+        break;
     }
+    return DateFormat('yyyy-MM-dd').format(startDate);
   }
 
   String get endDate {
     final currrentDate = DateTime.now();
-    return "${currrentDate.year}-${currrentDate.month}-${currrentDate.day}";
+    return DateFormat('yyyy-MM-dd').format(currrentDate);
   }
 
   String get timeFrame {
     switch (_timeFrame) {
       case TimeFrame.daily:
-        return '1H';
+        return '5T';
       case TimeFrame.weekly:
-        return '1D';
+        return '1H';
       case TimeFrame.monthly:
         return '1D';
       case TimeFrame.halfyear:
-        return '1W';
+        return '1D';
       case TimeFrame.yearly:
-        return '1M';
+        return '1W';
     }
   }
 

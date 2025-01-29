@@ -6,7 +6,8 @@ part of '../../../ui/stock/stock_detail_vm.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$stockDetailVMHash() => r'1e1035e94b208010cd2cb149f377eca267abc985';
+String _$getCompanyInformationHash() =>
+    r'54a705a46d43cc8f64228e886566ae699f682ed5';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,39 +30,30 @@ class _SystemHash {
   }
 }
 
-abstract class _$StockDetailVM
-    extends BuildlessAutoDisposeNotifier<StockDetailState> {
-  late final StockInformationRequest request;
+/// See also [getCompanyInformation].
+@ProviderFor(getCompanyInformation)
+const getCompanyInformationProvider = GetCompanyInformationFamily();
 
-  StockDetailState build(
-    StockInformationRequest request,
-  );
-}
+/// See also [getCompanyInformation].
+class GetCompanyInformationFamily extends Family<AsyncValue<CompanyFullData>> {
+  /// See also [getCompanyInformation].
+  const GetCompanyInformationFamily();
 
-/// See also [StockDetailVM].
-@ProviderFor(StockDetailVM)
-const stockDetailVMProvider = StockDetailVMFamily();
-
-/// See also [StockDetailVM].
-class StockDetailVMFamily extends Family<StockDetailState> {
-  /// See also [StockDetailVM].
-  const StockDetailVMFamily();
-
-  /// See also [StockDetailVM].
-  StockDetailVMProvider call(
-    StockInformationRequest request,
-  ) {
-    return StockDetailVMProvider(
-      request,
+  /// See also [getCompanyInformation].
+  GetCompanyInformationProvider call({
+    required String symbol,
+  }) {
+    return GetCompanyInformationProvider(
+      symbol: symbol,
     );
   }
 
   @override
-  StockDetailVMProvider getProviderOverride(
-    covariant StockDetailVMProvider provider,
+  GetCompanyInformationProvider getProviderOverride(
+    covariant GetCompanyInformationProvider provider,
   ) {
     return call(
-      provider.request,
+      symbol: provider.symbol,
     );
   }
 
@@ -77,30 +69,168 @@ class StockDetailVMFamily extends Family<StockDetailState> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'stockDetailVMProvider';
+  String? get name => r'getCompanyInformationProvider';
 }
 
-/// See also [StockDetailVM].
-class StockDetailVMProvider
-    extends AutoDisposeNotifierProviderImpl<StockDetailVM, StockDetailState> {
-  /// See also [StockDetailVM].
-  StockDetailVMProvider(
-    StockInformationRequest request,
-  ) : this._internal(
-          () => StockDetailVM()..request = request,
-          from: stockDetailVMProvider,
-          name: r'stockDetailVMProvider',
+/// See also [getCompanyInformation].
+class GetCompanyInformationProvider
+    extends AutoDisposeFutureProvider<CompanyFullData> {
+  /// See also [getCompanyInformation].
+  GetCompanyInformationProvider({
+    required String symbol,
+  }) : this._internal(
+          (ref) => getCompanyInformation(
+            ref as GetCompanyInformationRef,
+            symbol: symbol,
+          ),
+          from: getCompanyInformationProvider,
+          name: r'getCompanyInformationProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$stockDetailVMHash,
-          dependencies: StockDetailVMFamily._dependencies,
+                  : _$getCompanyInformationHash,
+          dependencies: GetCompanyInformationFamily._dependencies,
           allTransitiveDependencies:
-              StockDetailVMFamily._allTransitiveDependencies,
+              GetCompanyInformationFamily._allTransitiveDependencies,
+          symbol: symbol,
+        );
+
+  GetCompanyInformationProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.symbol,
+  }) : super.internal();
+
+  final String symbol;
+
+  @override
+  Override overrideWith(
+    FutureOr<CompanyFullData> Function(GetCompanyInformationRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: GetCompanyInformationProvider._internal(
+        (ref) => create(ref as GetCompanyInformationRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        symbol: symbol,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<CompanyFullData> createElement() {
+    return _GetCompanyInformationProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is GetCompanyInformationProvider && other.symbol == symbol;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, symbol.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin GetCompanyInformationRef
+    on AutoDisposeFutureProviderRef<CompanyFullData> {
+  /// The parameter `symbol` of this provider.
+  String get symbol;
+}
+
+class _GetCompanyInformationProviderElement
+    extends AutoDisposeFutureProviderElement<CompanyFullData>
+    with GetCompanyInformationRef {
+  _GetCompanyInformationProviderElement(super.provider);
+
+  @override
+  String get symbol => (origin as GetCompanyInformationProvider).symbol;
+}
+
+String _$getHistoricalBarDataHash() =>
+    r'6304080ca03621057e2c2d26ad33c94a73dd75d2';
+
+/// See also [getHistoricalBarData].
+@ProviderFor(getHistoricalBarData)
+const getHistoricalBarDataProvider = GetHistoricalBarDataFamily();
+
+/// See also [getHistoricalBarData].
+class GetHistoricalBarDataFamily extends Family<AsyncValue<List<double>>> {
+  /// See also [getHistoricalBarData].
+  const GetHistoricalBarDataFamily();
+
+  /// See also [getHistoricalBarData].
+  GetHistoricalBarDataProvider call({
+    required StockInformationRequest request,
+  }) {
+    return GetHistoricalBarDataProvider(
+      request: request,
+    );
+  }
+
+  @override
+  GetHistoricalBarDataProvider getProviderOverride(
+    covariant GetHistoricalBarDataProvider provider,
+  ) {
+    return call(
+      request: provider.request,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'getHistoricalBarDataProvider';
+}
+
+/// See also [getHistoricalBarData].
+class GetHistoricalBarDataProvider
+    extends AutoDisposeFutureProvider<List<double>> {
+  /// See also [getHistoricalBarData].
+  GetHistoricalBarDataProvider({
+    required StockInformationRequest request,
+  }) : this._internal(
+          (ref) => getHistoricalBarData(
+            ref as GetHistoricalBarDataRef,
+            request: request,
+          ),
+          from: getHistoricalBarDataProvider,
+          name: r'getHistoricalBarDataProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$getHistoricalBarDataHash,
+          dependencies: GetHistoricalBarDataFamily._dependencies,
+          allTransitiveDependencies:
+              GetHistoricalBarDataFamily._allTransitiveDependencies,
           request: request,
         );
 
-  StockDetailVMProvider._internal(
+  GetHistoricalBarDataProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -113,20 +243,13 @@ class StockDetailVMProvider
   final StockInformationRequest request;
 
   @override
-  StockDetailState runNotifierBuild(
-    covariant StockDetailVM notifier,
+  Override overrideWith(
+    FutureOr<List<double>> Function(GetHistoricalBarDataRef provider) create,
   ) {
-    return notifier.build(
-      request,
-    );
-  }
-
-  @override
-  Override overrideWith(StockDetailVM Function() create) {
     return ProviderOverride(
       origin: this,
-      override: StockDetailVMProvider._internal(
-        () => create()..request = request,
+      override: GetHistoricalBarDataProvider._internal(
+        (ref) => create(ref as GetHistoricalBarDataRef),
         from: from,
         name: null,
         dependencies: null,
@@ -138,14 +261,13 @@ class StockDetailVMProvider
   }
 
   @override
-  AutoDisposeNotifierProviderElement<StockDetailVM, StockDetailState>
-      createElement() {
-    return _StockDetailVMProviderElement(this);
+  AutoDisposeFutureProviderElement<List<double>> createElement() {
+    return _GetHistoricalBarDataProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is StockDetailVMProvider && other.request == request;
+    return other is GetHistoricalBarDataProvider && other.request == request;
   }
 
   @override
@@ -159,19 +281,19 @@ class StockDetailVMProvider
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin StockDetailVMRef on AutoDisposeNotifierProviderRef<StockDetailState> {
+mixin GetHistoricalBarDataRef on AutoDisposeFutureProviderRef<List<double>> {
   /// The parameter `request` of this provider.
   StockInformationRequest get request;
 }
 
-class _StockDetailVMProviderElement
-    extends AutoDisposeNotifierProviderElement<StockDetailVM, StockDetailState>
-    with StockDetailVMRef {
-  _StockDetailVMProviderElement(super.provider);
+class _GetHistoricalBarDataProviderElement
+    extends AutoDisposeFutureProviderElement<List<double>>
+    with GetHistoricalBarDataRef {
+  _GetHistoricalBarDataProviderElement(super.provider);
 
   @override
   StockInformationRequest get request =>
-      (origin as StockDetailVMProvider).request;
+      (origin as GetHistoricalBarDataProvider).request;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:stock_market_game/domain/entity/stock_information_request.dart';
 import 'package:stock_market_game/ui/stock/stock_detail_vm.dart';
 import 'package:stock_market_game/utils/dimensions.dart';
 import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
 class StockGraph extends ConsumerStatefulWidget {
   List<double> prices;
-  void Function() callBack;
+  void Function(TimeFrame) callBack;
 
   StockGraph({super.key, required this.prices, required this.callBack});
   @override
@@ -16,6 +17,21 @@ class StockGraph extends ConsumerStatefulWidget {
 class _StockGraphState extends ConsumerState<StockGraph> {
   List<String> timeFrame = ['1D', '5D', '1M', '6M', '1Y'];
   int selectedIndex = 0;
+
+  TimeFrame _timeFrameMap(int index) {
+    switch (index) {
+      case 0:
+        return TimeFrame.daily;
+      case 1:
+        return TimeFrame.weekly;
+      case 2:
+        return TimeFrame.monthly;
+      case 3:
+        return TimeFrame.halfyear;
+      default:
+        return TimeFrame.yearly;
+    }
+  }
 
   Widget selectedChip(int index) {
     return Chip(
@@ -32,7 +48,7 @@ class _StockGraphState extends ConsumerState<StockGraph> {
           setState(() {
             selectedIndex = index;
           });
-          widget.callBack();
+          widget.callBack(_timeFrameMap(index));
         },
         child: Chip(
           label: Text(timeFrame[index]),
@@ -43,6 +59,7 @@ class _StockGraphState extends ConsumerState<StockGraph> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        SizedBox(height: Dimensions.size20,),
         AspectRatio(
             aspectRatio: 2,
             child: SfSparkLineChart(
@@ -50,9 +67,10 @@ class _StockGraphState extends ConsumerState<StockGraph> {
               axisLineColor: Colors.transparent,
               data: widget.prices,
             )),
-            SizedBox(
-              height: Dimensions.size32,
-            ),
+                    SizedBox(
+          height: Dimensions.size20,
+        ),
+
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
@@ -62,7 +80,8 @@ class _StockGraphState extends ConsumerState<StockGraph> {
                 selectedIndex == i ? selectedChip(i) : unSelectedIndex(i)
             ],
           ),
-        )
+        ),
+        SizedBox(height: Dimensions.size14,)
       ],
     );
   }
