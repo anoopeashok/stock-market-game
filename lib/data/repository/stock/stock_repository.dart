@@ -27,7 +27,7 @@ class StockRepository {
       : _repositoryHelper = repositoryHelper;
 
   Future<Result<ActiveStockListModel>> getActiveStocks() async {
-    String endpoint = "/v1beta1/screener/stocks/most-actives?by=trades&top=5";
+    String endpoint = "/v1beta1/screener/stocks/most-actives?by=trades&top=10";
     return await _repositoryHelper.fetchData(
         endpoint: endpoint,
         fromJson: (json) => ActiveStockListModel.fromJson(json));

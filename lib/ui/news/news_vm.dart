@@ -14,7 +14,7 @@ class NewsViewNotifier extends _$NewsViewNotifier {
   @override
   NewsState build() {
     _newsRepository = ref.read(newsRepositoryProvider);
-      getNewsArticles();
+    getNewsArticles();
     return NewsState();
   }
 
@@ -25,7 +25,7 @@ class NewsViewNotifier extends _$NewsViewNotifier {
         nextToken = result.value.nextPageToken;
         state = state.copyWith(
             isInitialLoad: false,
-            news: [...state.news, ...result.value.news],
+            news: [...state.news, ..._filterNews(result.value.news)],
             isLoadMoreDone: nextToken == null);
       case Error<NewsFeedModel>():
         state = state.copyWith(
@@ -37,13 +37,13 @@ class NewsViewNotifier extends _$NewsViewNotifier {
 
   void loadMoreNewsArticle() async {
     state = state.copyWith(isLoading: true);
-    final result = await _newsRepository.getNewsArticle();
+    final result = await _newsRepository.getNewsArticle(nextPageToken: nextToken);
     switch (result) {
       case Ok<NewsFeedModel>():
         nextToken = result.value.nextPageToken;
         state = state.copyWith(
             isLoading: false,
-            news: [...state.news, ...result.value.news],
+            news: [...state.news, ..._filterNews(result.value.news)],
             isLoadMoreDone: nextToken == null);
       case Error<NewsFeedModel>():
         state = state.copyWith(
@@ -52,4 +52,9 @@ class NewsViewNotifier extends _$NewsViewNotifier {
             isLoadMoreDone: true);
     }
   }
+
+  List<NewsArticle> _filterNews( List<NewsArticle> news) =>
+            
+        List.from(news.where((news) => news.summary.isNotEmpty && news.images.isNotEmpty));
+  
 }
