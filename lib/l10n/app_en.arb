@@ -1,0 +1,32 @@
+{
+    "appTitle":"Stock Market Game",
+    "portfolio":"Portfolio",
+    "topStocks":"Top Stocks",
+    "news":"News",
+    "economy":"Economy",
+    "commodities":"Commodities",
+    "price":"Price {stockprice}",
+    "@price": {
+         "placeholders": {
+            "stockprice": {
+            "type": "double",
+            "example": "0.0"
+            }
+         }   
+    },
+    "topMarketMovers":"Top Market Movers",
+    "myPortfolio":"My Portfolio",
+    "investing":"Investing",
+    "remaining":"Remaining",
+    "marketNews":"Market News",
+    "summary":"Summary: {newsSummary}",
+    "@summary":{
+         "placeholders": {
+            "newsSummary": {
+            "type": "String",
+            "example": "news summary"
+            }
+         }         
+    },
+    "readMore":"Read more"
+}
