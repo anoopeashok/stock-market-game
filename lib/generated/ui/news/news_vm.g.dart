@@ -6,7 +6,7 @@ part of '../../../ui/news/news_vm.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$newsViewNotifierHash() => r'24c37700d266f9920c0e9736db80710ff07dfab2';
+String _$newsViewNotifierHash() => r'869ad036b530afced4e5dfc7cc29026501b87685';
 
 /// See also [NewsViewNotifier].
 @ProviderFor(NewsViewNotifier)

@@ -6,10 +6,9 @@ import 'package:stock_market_game/utils/dimensions.dart';
 import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
 class StockGraph extends ConsumerStatefulWidget {
-  List<double> prices;
-  void Function(TimeFrame) callBack;
+  String symbol;
 
-  StockGraph({super.key, required this.prices, required this.callBack});
+  StockGraph({super.key, required this.symbol});
   @override
   ConsumerState<StockGraph> createState() => _StockGraphState();
 }
@@ -17,6 +16,7 @@ class StockGraph extends ConsumerStatefulWidget {
 class _StockGraphState extends ConsumerState<StockGraph> {
   List<String> timeFrame = ['1D', '5D', '1M', '6M', '1Y'];
   int selectedIndex = 0;
+  late StockInformationRequest stockInformationRequest;
 
   TimeFrame _timeFrameMap(int index) {
     switch (index) {
@@ -48,7 +48,9 @@ class _StockGraphState extends ConsumerState<StockGraph> {
           setState(() {
             selectedIndex = index;
           });
-          widget.callBack(_timeFrameMap(index));
+              stockInformationRequest =
+              StockInformationRequest(symbol: widget.symbol,timeFrame: _timeFrameMap(index));
+
         },
         child: Chip(
           label: Text(timeFrame[index]),
@@ -56,21 +58,37 @@ class _StockGraphState extends ConsumerState<StockGraph> {
   }
 
   @override
+  void initState() {
+    stockInformationRequest = StockInformationRequest(symbol: widget.symbol);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final stockPrices = ref
+        .watch(getHistoricalBarDataProvider(request: stockInformationRequest));
     return Column(
       children: [
-        SizedBox(height: Dimensions.size20,),
-        AspectRatio(
-            aspectRatio: 2,
-            child: SfSparkLineChart(
-              color: Theme.of(context).primaryColor,
-              axisLineColor: Colors.transparent,
-              data: widget.prices,
-            )),
-                    SizedBox(
+        SizedBox(
           height: Dimensions.size20,
         ),
-
+        AspectRatio(
+          aspectRatio: 2,
+          child: stockPrices.when(
+            data: (data)=> SfSparkLineChart(
+              color: Theme.of(context).primaryColor,
+              axisLineColor: Colors.transparent,
+              data: data,
+            ),
+            loading: ()=> Center(child: CircularProgressIndicator()),
+            error: (error, st) => Container(),
+          
+          ),
+        ),
+        
+        SizedBox(
+          height: Dimensions.size20,
+        ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
@@ -81,7 +99,9 @@ class _StockGraphState extends ConsumerState<StockGraph> {
             ],
           ),
         ),
-        SizedBox(height: Dimensions.size14,)
+        SizedBox(
+          height: Dimensions.size14,
+        )
       ],
     );
   }

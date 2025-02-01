@@ -1,15 +1,20 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:stock_market_game/domain/entity/company_full_data.dart';
 
 import 'package:stock_market_game/domain/entity/stock_information_request.dart';
 import 'package:stock_market_game/domain/models/company%20information/company_information_model.dart';
 import 'package:stock_market_game/domain/models/company%20information/company_logo_model.dart';
+import 'package:stock_market_game/routing/router.dart';
 import 'package:stock_market_game/ui/core/stock_graph.dart';
 import 'package:stock_market_game/ui/stock/stock_detail_vm.dart';
 import 'package:stock_market_game/ui/stock/stock_tag_view.dart';
 import 'package:stock_market_game/utils/dimensions.dart';
+
+import '../trade stocks/buy_stock_view.dart';
 
 class StockDetail extends ConsumerStatefulWidget {
   String symbol;
@@ -20,11 +25,9 @@ class StockDetail extends ConsumerStatefulWidget {
 }
 
 class _StockDetailState extends ConsumerState<StockDetail> {
-  late StockInformationRequest stockInformationRequest;
 
   @override
   void initState() {
-    stockInformationRequest = StockInformationRequest(symbol: widget.symbol);
     super.initState();
   }
 
@@ -32,42 +35,81 @@ class _StockDetailState extends ConsumerState<StockDetail> {
   Widget build(BuildContext context) {
     final state =
         ref.watch(getCompanyInformationProvider(symbol: widget.symbol));
-    final stockPrices = ref
-        .watch(getHistoricalBarDataProvider(request: stockInformationRequest));
+
     return Scaffold(
         appBar: AppBar(),
-        body: state.when(
-            data: (data) => SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+        body: SafeArea(
+          child: state.when(
+              data: (data) => Column(
                     children: [
-                      StockTopBar(
-                          companyInformation: data.companyInformation,
-                          price: data.price,
-                          priceChange: data.priceChange),
-                      stockPrices.when(
-                          data: (data) => StockGraph(
-                              prices: data,
-                              callBack: (timeFrame) {
-                                setState(() {
-                                  stockInformationRequest =
-                                      StockInformationRequest(
-                                          symbol: widget.symbol,
-                                          timeFrame: timeFrame);
-                                });
-                              }),
-                          error: (error, st) => Container(),
-                          loading: () =>
-                              Center(child: CircularProgressIndicator())),
-                      CompanyInformationView(
-                        companyInformation: data.companyInformation,
-                        image: data.image,
-                      )
+                      Expanded(
+                        child: SingleChildScrollView(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              StockTopBar(
+                                  companyInformation: data.companyInformation,
+                                  price: data.price,
+                                  priceChange: data.priceChange),
+                             StockGraph(symbol: widget.symbol),
+                              CompanyInformationView(
+                                companyInformation: data.companyInformation,
+                                image: data.image,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      StockBottomBar(price: data.price,companyFullData: data,)
                     ],
                   ),
-                ),
-            error: (error, st) => Container(),
-            loading: () => Center(child: CircularProgressIndicator())));
+              error: (error, st) => Container(),
+              loading: () => Center(child: CircularProgressIndicator())),
+        ));
+  }
+}
+
+class StockBottomBar extends StatelessWidget {
+  final CompanyFullData companyFullData;
+  final double price;
+  const StockBottomBar({
+    super.key,
+    required this.price,
+    required this.companyFullData
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(Dimensions.size14),
+      child: Row(
+        spacing: Dimensions.size12,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text('Quote'),
+              Text(
+                price.toStringAsFixed(2),
+                style: TextTheme.of(context)
+                    .displaySmall!
+                    .copyWith(fontWeight: FontWeight.bold),
+              )
+            ],
+          ),
+          Expanded(
+              child: ElevatedButton(onPressed: ()=> showBuyStockBottomSheet(context:  context,fullData:  companyFullData) , child: Text('Buy'))),
+          Expanded(
+            child: ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(Colors.red)),
+                onPressed: () {},
+                child: Text('Sell')),
+          )
+        ],
+      ),
+    );
   }
 }
 
@@ -98,11 +140,18 @@ class StockTopBar extends StatelessWidget {
             price.toString(),
             style: TextTheme.of(context).headlineMedium,
           ),
-          Text(
-            priceChange.toStringAsFixed(2),
-            style: TextTheme.of(context)
-                .titleLarge!
-                .copyWith(color: priceChange > 0 ? Colors.green : Colors.red),
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            spacing: Dimensions.size8,
+            children: [
+              priceChange > 0 ? Icon(Icons.arrow_upward,color: Colors.green,) : Icon(Icons.arrow_downward,color: Colors.red,),
+              Text(
+                priceChange.toStringAsFixed(2),
+                style: TextTheme.of(context)
+                    .titleLarge!
+                    .copyWith(color: priceChange > 0 ? Colors.green : Colors.red),
+              ),
+            ],
           )
         ],
       ),
@@ -128,6 +177,7 @@ class CompanyInformationView extends StatelessWidget {
 
     return numberFormat.format(doubleNumber);
   }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -140,8 +190,10 @@ class CompanyInformationView extends StatelessWidget {
                   name: companyInformation.name,
                   ticker: companyInformation.symbol,
                   image: image)),
-          Text(companyInformation.description),
-          SizedBox(height: Dimensions.size14,),
+          Text(companyInformation.description,maxLines: 5,overflow: TextOverflow.ellipsis,),
+          SizedBox(
+            height: Dimensions.size14,
+          ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             spacing: Dimensions.size14,
@@ -155,7 +207,9 @@ class CompanyInformationView extends StatelessWidget {
                     Text("Market Captilization"),
                     Text(
                       formatNumber(companyInformation.marketCapitalization),
-                      style: TextTheme.of(context).titleMedium!.copyWith(fontWeight: FontWeight.bold),
+                      style: TextTheme.of(context)
+                          .titleMedium!
+                          .copyWith(fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -169,7 +223,9 @@ class CompanyInformationView extends StatelessWidget {
                     Text("Industry"),
                     Text(
                       companyInformation.industry,
-                      style: TextTheme.of(context).titleMedium!.copyWith(fontWeight: FontWeight.bold),
+                      style: TextTheme.of(context)
+                          .titleMedium!
+                          .copyWith(fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
