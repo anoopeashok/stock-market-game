@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:stock_market_game/domain/entity/company_full_data.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:stock_market_game/domain/entity/stock_information_request.dart';
 import 'package:stock_market_game/domain/models/company%20information/company_information_model.dart';
@@ -25,7 +26,6 @@ class StockDetail extends ConsumerStatefulWidget {
 }
 
 class _StockDetailState extends ConsumerState<StockDetail> {
-
   @override
   void initState() {
     super.initState();
@@ -51,7 +51,7 @@ class _StockDetailState extends ConsumerState<StockDetail> {
                                   companyInformation: data.companyInformation,
                                   price: data.price,
                                   priceChange: data.priceChange),
-                             StockGraph(symbol: widget.symbol),
+                              StockGraph(symbol: widget.symbol),
                               CompanyInformationView(
                                 companyInformation: data.companyInformation,
                                 image: data.image,
@@ -60,7 +60,10 @@ class _StockDetailState extends ConsumerState<StockDetail> {
                           ),
                         ),
                       ),
-                      StockBottomBar(price: data.price,companyFullData: data,)
+                      StockBottomBar(
+                        price: data.price,
+                        companyFullData: data,
+                      )
                     ],
                   ),
               error: (error, st) => Container(),
@@ -72,11 +75,8 @@ class _StockDetailState extends ConsumerState<StockDetail> {
 class StockBottomBar extends StatelessWidget {
   final CompanyFullData companyFullData;
   final double price;
-  const StockBottomBar({
-    super.key,
-    required this.price,
-    required this.companyFullData
-  });
+  const StockBottomBar(
+      {super.key, required this.price, required this.companyFullData});
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +89,7 @@ class StockBottomBar extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('Quote'),
+              Text(AppLocalizations.of(context)!.quote),
               Text(
                 price.toStringAsFixed(2),
                 style: TextTheme.of(context)
@@ -99,13 +99,16 @@ class StockBottomBar extends StatelessWidget {
             ],
           ),
           Expanded(
-              child: ElevatedButton(onPressed: ()=> showBuyStockBottomSheet(context:  context,fullData:  companyFullData) , child: Text('Buy'))),
+              child: ElevatedButton(
+                  onPressed: () => showBuyStockBottomSheet(
+                      context: context, fullData: companyFullData),
+                  child: Text(AppLocalizations.of(context)!.buy))),
           Expanded(
             child: ElevatedButton(
                 style: ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(Colors.red)),
                 onPressed: () {},
-                child: Text('Sell')),
+                child: Text(AppLocalizations.of(context)!.sell)),
           )
         ],
       ),
@@ -144,12 +147,19 @@ class StockTopBar extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             spacing: Dimensions.size8,
             children: [
-              priceChange > 0 ? Icon(Icons.arrow_upward,color: Colors.green,) : Icon(Icons.arrow_downward,color: Colors.red,),
+              priceChange > 0
+                  ? Icon(
+                      Icons.arrow_upward,
+                      color: Colors.green,
+                    )
+                  : Icon(
+                      Icons.arrow_downward,
+                      color: Colors.red,
+                    ),
               Text(
                 priceChange.toStringAsFixed(2),
-                style: TextTheme.of(context)
-                    .titleLarge!
-                    .copyWith(color: priceChange > 0 ? Colors.green : Colors.red),
+                style: TextTheme.of(context).titleLarge!.copyWith(
+                    color: priceChange > 0 ? Colors.green : Colors.red),
               ),
             ],
           )
@@ -180,6 +190,7 @@ class CompanyInformationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: Dimensions.size14),
       child: Column(
@@ -190,7 +201,11 @@ class CompanyInformationView extends StatelessWidget {
                   name: companyInformation.name,
                   ticker: companyInformation.symbol,
                   image: image)),
-          Text(companyInformation.description,maxLines: 5,overflow: TextOverflow.ellipsis,),
+          Text(
+            companyInformation.description,
+            maxLines: 5,
+            overflow: TextOverflow.ellipsis,
+          ),
           SizedBox(
             height: Dimensions.size14,
           ),
@@ -204,7 +219,7 @@ class CompanyInformationView extends StatelessWidget {
                   spacing: Dimensions.size12,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text("Market Captilization"),
+                    Text(l10n!.marketCapitilization),
                     Text(
                       formatNumber(companyInformation.marketCapitalization),
                       style: TextTheme.of(context)
@@ -220,7 +235,7 @@ class CompanyInformationView extends StatelessWidget {
                   spacing: Dimensions.size12,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text("Industry"),
+                    Text(l10n.industry),
                     Text(
                       companyInformation.industry,
                       style: TextTheme.of(context)

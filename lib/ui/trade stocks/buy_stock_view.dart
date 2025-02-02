@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:stock_market_game/domain/entity/company_full_data.dart';
 import 'package:stock_market_game/domain/models/stock/stock_hold_model.dart';
@@ -52,7 +53,7 @@ class _BuyStockViewState extends ConsumerState<BuyStockView> {
   Widget build(BuildContext context) {
     final state = ref.watch(buyStockVMProvider);
     final notifier = ref.read(buyStockVMProvider.notifier);
-
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -63,19 +64,19 @@ class _BuyStockViewState extends ConsumerState<BuyStockView> {
               spacing: Dimensions.size12,
               children: [
                 Text(
-                  "Buy " + widget.fullData.companyInformation.name,
+                  l10n!.buy + widget.fullData.companyInformation.name,
                   style: TextTheme.of(context).headlineMedium,
                 ),
                 Row(
                   children: [
-                    Expanded(child: Text('Cost per share')),
+                    Expanded(child: Text(l10n.costPerShare)),
                     Expanded(
                         child: Text(widget.fullData.price.toStringAsFixed(2)))
                   ],
                 ),
                 Row(
                   children: [
-                    Expanded(child: Text('Quantity')),
+                    Expanded(child: Text(l10n.quantity)),
                     Expanded(
                       child: TextFormField(
                         keyboardType: TextInputType.number,
@@ -95,7 +96,7 @@ class _BuyStockViewState extends ConsumerState<BuyStockView> {
                 ),
                 Row(
                   children: [
-                    Expanded(child: Text('Consideration')),
+                    Expanded(child: Text(l10n.consideration)),
                     Expanded(child: Text(consideration.toString()))
                   ],
                 ),
@@ -107,14 +108,14 @@ class _BuyStockViewState extends ConsumerState<BuyStockView> {
                 ),
                 Row(
                   children: [
-                    Expanded(child: Text('commission')),
+                    Expanded(child: Text(l10n.comission)),
                     Expanded(child: Text(commission.toString()))
                   ],
                 ),
                 Spacer(),
                 Row(
                   children: [
-                    Expanded(child: Text('Total cost')),
+                    Expanded(child: Text(l10n.totalCost)),
                     Expanded(child: Text(totalCost.toStringAsFixed(2)))
                   ],
                 ),
@@ -131,13 +132,13 @@ class _BuyStockViewState extends ConsumerState<BuyStockView> {
                                       backgroundColor:
                                           WidgetStatePropertyAll(Colors.red)),
                                   onPressed: () => context.pop(),
-                                  child: Text('Cancel'))),
+                                  child: Text(l10n.cancel))),
                           Expanded(
                             child: ElevatedButton(
                                 onPressed: () async {
                                   if (_formKey.currentState!.validate()) {
                                     await notifier.buyStock(StockHold(
-                                      image: widget.fullData.image,
+                                        image: widget.fullData.image,
                                         name: widget
                                             .fullData.companyInformation.name,
                                         symbol: widget
@@ -149,7 +150,7 @@ class _BuyStockViewState extends ConsumerState<BuyStockView> {
                                     context.pop();
                                   }
                                 },
-                                child: Text('Confirm')),
+                                child: Text(l10n.confirm)),
                           ),
                         ],
                       )

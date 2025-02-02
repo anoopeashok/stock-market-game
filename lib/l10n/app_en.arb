@@ -5,8 +5,8 @@
     "news":"News",
     "economy":"Economy",
     "commodities":"Commodities",
-    "price":"Price {stockprice}",
-    "@price": {
+    "priceWithValue":"Price {stockprice}",
+    "@priceWithValue": {
          "placeholders": {
             "stockprice": {
             "type": "double",
@@ -28,5 +28,26 @@
             }
          }         
     },
-    "readMore":"Read more"
+    "readMore":"Read more",
+    "stock":"Stock",
+    "price":"Price",
+    "change":"Change",
+    "popularStocks":"Popular Stocks",
+    "topGainers":"Top Gainers",
+    "topLosers":"Top Losers",
+    "tradeCount":"Trade count",
+    "myStocks":"My Stocks",
+    "quote":"Quote",
+    "sell":"Sell",
+    "marketCapitilization":"Market Capitilization",
+    "industry":"Industry",
+    "buy":"Buy",
+    "costPerShare":"Cost per share",
+    "quantity":"Quantity",
+    "consideration":"Consideration",
+    "comission":"Comission",
+   "totalCost":"Total cost",
+   "cancel":"Cancel",
+   "confirm":"Confirm"
+
 }

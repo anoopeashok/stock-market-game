@@ -2,12 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
-import 'package:stock_market_game/domain/entity/popular_stock.dart';
-import 'package:stock_market_game/domain/entity/top_market_movers_entity.dart';
-import 'package:stock_market_game/domain/models/performance/active_stock_list_model.dart';
-import 'package:stock_market_game/routing/router.dart';
 import 'package:stock_market_game/ui/market_mover_stock/gainer_loser_info_table.dart';
 import 'package:stock_market_game/ui/market_mover_stock/market_mover_stock_vm.dart';
 import 'package:stock_market_game/ui/market_mover_stock/stock%20search/stock_search_bar.dart';
@@ -66,7 +61,7 @@ class _MarketMoverStockState extends ConsumerState<MarketMoverStock>
                           padding: const EdgeInsets.symmetric(
                               horizontal: Dimensions.size14),
                           child: Text(
-                            "Popular Stocks",
+                            AppLocalizations.of(context)!.popularStocks,
                             style: TextTheme.of(context).titleMedium!.copyWith(fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -94,7 +89,7 @@ class _MarketMoverStockState extends ConsumerState<MarketMoverStock>
                           padding: const EdgeInsets.symmetric(
                               horizontal: Dimensions.size14),
                           child: Text(
-                            "Top Gainers",
+                            AppLocalizations.of(context)!.topGainers,
                             style: TextTheme.of(context).titleMedium,
                           ),
                         ),
@@ -109,7 +104,7 @@ class _MarketMoverStockState extends ConsumerState<MarketMoverStock>
                         Padding(
                           padding: const EdgeInsets.symmetric(
                               horizontal: Dimensions.size14),
-                          child: Text("Top Losers"),
+                          child: Text(AppLocalizations.of(context)!.topLosers),
                         ),
                         SizedBox(
                           height: 10,

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:stock_market_game/domain/entity/popular_stock.dart';
 import 'package:stock_market_game/ui/stock/stock_tag_view.dart';
 import 'package:stock_market_game/utils/dimensions.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TopStockInfoTable extends StatelessWidget {
   final List<PopularStock> popularStockList;
@@ -15,6 +16,7 @@ class TopStockInfoTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -26,21 +28,21 @@ class TopStockInfoTable extends StatelessWidget {
               Expanded(
                 flex: 2,
                 child: Text(
-                  "Stock",
+                  l10n!.stock,
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
               Expanded(
                 flex: 1,
                 child: Text(
-                  "Trade count",
+                  l10n.tradeCount,
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
               Expanded(
                   flex: 1,
                   child: Text(
-                    "Change",
+                    l10n.change,
                     style: TextStyle(fontWeight: FontWeight.bold),
                   )),
             ],
@@ -81,5 +83,3 @@ class TopStockInfoTable extends StatelessWidget {
     );
   }
 }
-
-

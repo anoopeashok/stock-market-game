@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:stock_market_game/domain/entity/top_market_movers_entity.dart';
 import 'package:stock_market_game/ui/stock/stock_tag_view.dart';
 import 'package:stock_market_game/utils/dimensions.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class GainerLoserInfoTable extends StatelessWidget {
   final List<TopMarketMoversEntityItem> topMarketMoversEntityItem;
@@ -26,21 +27,21 @@ class GainerLoserInfoTable extends StatelessWidget {
               Expanded(
                 flex: 2,
                 child: Text(
-                  "Stock",
+                  AppLocalizations.of(context)!.stock,
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
               Expanded(
                 flex: 1,
                 child: Text(
-                  "price",
+                  AppLocalizations.of(context)!.price,
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
               Expanded(
                   flex: 1,
                   child: Text(
-                    "Change",
+                    AppLocalizations.of(context)!.change,
                     style: TextStyle(fontWeight: FontWeight.bold),
                   )),
             ],
