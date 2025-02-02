@@ -6,26 +6,28 @@ import 'package:intl/intl.dart';
 enum TimeFrame { daily, weekly, monthly, halfyear, yearly }
 
 class StockInformationRequest extends Equatable {
-  final String _symbol;
+  final List<String> _symbols;
+  final String? _symbol;
   final TimeFrame _timeFrame;
 
   StockInformationRequest(
-      {required String symbol, TimeFrame timeFrame = TimeFrame.daily})
-      : _symbol = symbol,
-        _timeFrame = timeFrame;
+      {  List<String>? symbols,String? symbol, TimeFrame timeFrame = TimeFrame.daily})
+      : _symbols = symbols ?? [],
+      _symbol = symbol,
+        _timeFrame = timeFrame,assert (symbols != null ||symbol != null );
 
   String get startDate {
     final currentDate = DateTime.now();
     DateTime startDate;
     switch (_timeFrame) {
       case TimeFrame.daily:
-        startDate = currentDate.subtract(Duration(days: 1));
+        startDate = currentDate.subtract(Duration(days: 2));
         break;
       case TimeFrame.weekly:
-        startDate = currentDate.subtract(Duration(days: 5));
+        startDate = currentDate.subtract(Duration(days: 6));
         break;
       case TimeFrame.monthly:
-        startDate = currentDate.subtract(Duration(days: 30));
+        startDate = currentDate.subtract(Duration(days: 31));
         break;
       case TimeFrame.halfyear:
         startDate = currentDate.subtract(Duration(days: 180));
@@ -39,7 +41,7 @@ class StockInformationRequest extends Equatable {
 
   String get endDate {
     final currrentDate = DateTime.now();
-    return DateFormat('yyyy-MM-dd').format(currrentDate);
+    return DateFormat('yyyy-MM-dd').format(currrentDate.subtract(Duration(days: 1)));
   }
 
   String get timeFrame {
@@ -57,8 +59,12 @@ class StockInformationRequest extends Equatable {
     }
   }
 
-  String get symbol => _symbol;
+  String? get symbol => _symbol;
 
+  List<String> get symbols => _symbols;
+  
   @override
-  List<Object> get props => [_symbol, _timeFrame];
+  List<Object?> get props => [_symbol,_symbols,_timeFrame];
+
+
 }

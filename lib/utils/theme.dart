@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:stock_market_game/utils/dimensions.dart";
 
 class MaterialTheme {
   final TextTheme textTheme;
@@ -335,22 +336,34 @@ class MaterialTheme {
     return theme(darkHighContrastScheme());
   }
 
-
   ThemeData theme(ColorScheme colorScheme) => ThemeData(
-     useMaterial3: true,
-     brightness: colorScheme.brightness,
-     colorScheme: colorScheme,
-     textTheme: textTheme.apply(
-       bodyColor: colorScheme.onSurface,
-       displayColor: colorScheme.onSurface,
-     ),
-     scaffoldBackgroundColor: colorScheme.surface,
-     canvasColor: colorScheme.surface,
-  );
+      useMaterial3: true,
+      brightness: colorScheme.brightness,
+      colorScheme: colorScheme,
+      textTheme: textTheme.apply(
+        bodyColor: colorScheme.onSurface,
+        displayColor: colorScheme.onSurface,
+      ),
+      scaffoldBackgroundColor: colorScheme.surface,
+      canvasColor: colorScheme.surface,
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: Colors.grey[200],
+        isDense: true,
+        contentPadding: EdgeInsets.all(Dimensions.size4),
+        border: OutlineInputBorder(
+          borderSide: BorderSide.none
+        )
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        
+          style: ButtonStyle(
+            minimumSize: WidgetStatePropertyAll(Size(double.infinity, 50)),
+              shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+                  borderRadius:
+                      BorderRadius.circular(Dimensions.roundedRadius8))))));
 
-
-  List<ExtendedColor> get extendedColors => [
-  ];
+  List<ExtendedColor> get extendedColors => [];
 }
 
 class ExtendedColor {

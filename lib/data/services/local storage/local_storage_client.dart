@@ -25,7 +25,7 @@ class SharedPreferenceClient extends LocalStorage {
   }
 
   @override
-  Future<Result> get(String key) async {
+  Future<Result<dynamic>> get(String key) async {
     _sharedPreferences = await SharedPreferences.getInstance();
     String? data = _sharedPreferences.getString(key);
     return data != null

@@ -16,9 +16,9 @@ class NewsRepository {
       : _repositoryHelper = repositoryHelper;
   final RepositoryHelper _repositoryHelper;
 
-  Future<Result<NewsFeedModel>> getNewsArticle({String nextPageToken = ''}) async {
+  Future<Result<NewsFeedModel>> getNewsArticle({String? nextPageToken = ''}) async {
     final endpoint =
-        '/v1beta1/news?start=2024-01-03T00%3A00%3A00Z&end=2024-01-04T00%3A00%3A00Z&sort=desc&include_content=false&page_token=$nextPageToken';
+        '/v1beta1/news?sort=desc&page_token=$nextPageToken';
     final result = await _repositoryHelper.fetchData(
         endpoint: endpoint, fromJson: (json) => NewsFeedModel.fromJson(json));
     switch (result) {

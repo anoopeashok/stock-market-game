@@ -1,17 +1,11 @@
-# stock_market_game
+# Stock Market Game
+Trade your favourite stocks with virtual money.
 
-A new Flutter project.
+## 🌟 Features of Stock Market Game
 
-## Getting Started
+Here are some key features of the app:
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# stock-market-game
+| 📈 Live Market Updates | 💼 Portfolio Management | 📰 Latest News | 📊 Stock Analysis |
+|-----------------------|----------------------|--------------|----------------|
+| ![Recent Updates](assets/readme/top-stocks.png) | ![Portfolio](assets/readme/portfolio.png) | ![News](assets/readme/market-news.png) | ![Stock Analysis](assets/readme/stocks.png) |
+| Get real-time stock prices | Track your investments | Stay updated with market news | Analyze stock trends |

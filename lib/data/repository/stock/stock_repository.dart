@@ -6,6 +6,7 @@ import 'package:stock_market_game/domain/entity/stock_information_request.dart';
 import 'package:stock_market_game/domain/models/performance/top_movers_stocks_model.dart';
 import 'package:stock_market_game/domain/models/stock/historical_bar.dart';
 import 'package:stock_market_game/domain/models/stock/latest_bar.dart';
+import 'package:stock_market_game/domain/models/stock/multi_historical_bar.dart';
 import 'package:stock_market_game/domain/models/stock/stock_data_model.dart';
 import 'package:stock_market_game/utils/result.dart';
 
@@ -27,7 +28,7 @@ class StockRepository {
       : _repositoryHelper = repositoryHelper;
 
   Future<Result<ActiveStockListModel>> getActiveStocks() async {
-    String endpoint = "/v1beta1/screener/stocks/most-actives?by=trades&top=5";
+    String endpoint = "/v1beta1/screener/stocks/most-actives?by=trades&top=10";
     return await _repositoryHelper.fetchData(
         endpoint: endpoint,
         fromJson: (json) => ActiveStockListModel.fromJson(json));
@@ -58,6 +59,20 @@ class StockRepository {
     return await _repositoryHelper.fetchData(
         endpoint: endpoint,
         fromJson: (json) => HistoricalBarDataModel.fromJson(json));
+  }
+
+
+  Future<Result<MultiHistoricalBar>> getMultitHistoricalBarData(
+      StockInformationRequest request) async {
+        String parsedCompanyName = '';
+    for (var name in request.symbols) {
+      parsedCompanyName = '$parsedCompanyName$name%2C';
+    }
+    String endpoint =
+        "/v2/stocks/bars?symbols=$parsedCompanyName&timeframe=${request.timeFrame}&start=${request.startDate}&end=${request.endDate}&limit=1000&adjustment=raw&feed=iex&sort=asc";
+    return await _repositoryHelper.fetchData(
+        endpoint: endpoint,
+        fromJson: (json) => MultiHistoricalBar.fromJson(json));
   }
 
     Future<Result<LatestBarDataModel>> getLatestBarData(

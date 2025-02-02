@@ -96,7 +96,7 @@ class PopularStocksUsecase {
       switch (companyLogo) {
         case Ok<Company>():
           if (companyLogo.value.ticker == '') {
-            company = Company(name: symbol, ticker: symbol, image: '');
+            company = Company(name: symbol, ticker: symbol, image: 'https://img.freepik.com/premium-vector/stock-market-icon-logo-element-illustration-stock-market-symbol-design-from-2-colored-collection-simple-stock-market-concept-can-be-used-web-mobile_159242-5117.jpg?w=1060');
           } else {
             company = companyLogo.value;
           }

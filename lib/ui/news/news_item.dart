@@ -28,7 +28,7 @@ class NewsItem extends StatelessWidget {
               Expanded(
                   flex: 3,
                   child: Image.network(
-                    newsArticle.images[0].url,
+                    newsArticle.images.isNotEmpty ? newsArticle.images[0].url : '',
                     fit: BoxFit.cover,
                   )),
               Expanded(
