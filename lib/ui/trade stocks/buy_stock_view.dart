@@ -137,6 +137,7 @@ class _BuyStockViewState extends ConsumerState<BuyStockView> {
                                 onPressed: () async {
                                   if (_formKey.currentState!.validate()) {
                                     await notifier.buyStock(StockHold(
+                                      image: widget.fullData.image,
                                         name: widget
                                             .fullData.companyInformation.name,
                                         symbol: widget

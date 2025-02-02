@@ -10,6 +10,7 @@ _$StockHoldImpl _$$StockHoldImplFromJson(Map<String, dynamic> json) =>
     _$StockHoldImpl(
       name: json['name'] as String,
       symbol: json['symbol'] as String,
+      image: json['image'] as String,
       price: (json['price'] as num).toDouble(),
       numberOfShares: (json['numberOfShares'] as num).toDouble(),
       totalPrice: (json['totalPrice'] as num).toDouble(),
@@ -20,6 +21,7 @@ Map<String, dynamic> _$$StockHoldImplToJson(_$StockHoldImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'symbol': instance.symbol,
+      'image': instance.image,
       'price': instance.price,
       'numberOfShares': instance.numberOfShares,
       'totalPrice': instance.totalPrice,

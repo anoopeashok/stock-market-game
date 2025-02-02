@@ -9,6 +9,7 @@ class StockHold with _$StockHold {
   factory StockHold({
     required String name,
     required String symbol,
+    required String image,
     required double price,
     required double numberOfShares,
     required double totalPrice,

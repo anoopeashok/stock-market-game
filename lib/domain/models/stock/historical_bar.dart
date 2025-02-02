@@ -17,4 +17,12 @@ class HistoricalBarDataModel {
     return HistoricalBarDataModel(
         bars: bars, symbol: symbol, nextPageToken: json['next_page_token']);
   }
+
+    factory HistoricalBarDataModel.fromMap(String key,List<dynamic> barList) {
+
+    List<Bar> bars = List<Bar>.from(barList.map((item) => Bar.fromJson(item)));
+
+    return HistoricalBarDataModel(
+        bars: bars, symbol: key);
+  }
 }

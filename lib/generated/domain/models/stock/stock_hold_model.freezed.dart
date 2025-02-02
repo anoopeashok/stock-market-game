@@ -22,6 +22,7 @@ StockHold _$StockHoldFromJson(Map<String, dynamic> json) {
 mixin _$StockHold {
   String get name => throw _privateConstructorUsedError;
   String get symbol => throw _privateConstructorUsedError;
+  String get image => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
   double get numberOfShares => throw _privateConstructorUsedError;
   double get totalPrice => throw _privateConstructorUsedError;
@@ -45,6 +46,7 @@ abstract class $StockHoldCopyWith<$Res> {
   $Res call(
       {String name,
       String symbol,
+      String image,
       double price,
       double numberOfShares,
       double totalPrice,
@@ -68,6 +70,7 @@ class _$StockHoldCopyWithImpl<$Res, $Val extends StockHold>
   $Res call({
     Object? name = null,
     Object? symbol = null,
+    Object? image = null,
     Object? price = null,
     Object? numberOfShares = null,
     Object? totalPrice = null,
@@ -81,6 +84,10 @@ class _$StockHoldCopyWithImpl<$Res, $Val extends StockHold>
       symbol: null == symbol
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
+              as String,
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
               as String,
       price: null == price
           ? _value.price
@@ -113,6 +120,7 @@ abstract class _$$StockHoldImplCopyWith<$Res>
   $Res call(
       {String name,
       String symbol,
+      String image,
       double price,
       double numberOfShares,
       double totalPrice,
@@ -134,6 +142,7 @@ class __$$StockHoldImplCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
     Object? symbol = null,
+    Object? image = null,
     Object? price = null,
     Object? numberOfShares = null,
     Object? totalPrice = null,
@@ -147,6 +156,10 @@ class __$$StockHoldImplCopyWithImpl<$Res>
       symbol: null == symbol
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
+              as String,
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
               as String,
       price: null == price
           ? _value.price
@@ -174,6 +187,7 @@ class _$StockHoldImpl implements _StockHold {
   _$StockHoldImpl(
       {required this.name,
       required this.symbol,
+      required this.image,
       required this.price,
       required this.numberOfShares,
       required this.totalPrice,
@@ -187,6 +201,8 @@ class _$StockHoldImpl implements _StockHold {
   @override
   final String symbol;
   @override
+  final String image;
+  @override
   final double price;
   @override
   final double numberOfShares;
@@ -197,7 +213,7 @@ class _$StockHoldImpl implements _StockHold {
 
   @override
   String toString() {
-    return 'StockHold(name: $name, symbol: $symbol, price: $price, numberOfShares: $numberOfShares, totalPrice: $totalPrice, date: $date)';
+    return 'StockHold(name: $name, symbol: $symbol, image: $image, price: $price, numberOfShares: $numberOfShares, totalPrice: $totalPrice, date: $date)';
   }
 
   @override
@@ -207,6 +223,7 @@ class _$StockHoldImpl implements _StockHold {
             other is _$StockHoldImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.symbol, symbol) || other.symbol == symbol) &&
+            (identical(other.image, image) || other.image == image) &&
             (identical(other.price, price) || other.price == price) &&
             (identical(other.numberOfShares, numberOfShares) ||
                 other.numberOfShares == numberOfShares) &&
@@ -217,8 +234,8 @@ class _$StockHoldImpl implements _StockHold {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, name, symbol, price, numberOfShares, totalPrice, date);
+  int get hashCode => Object.hash(runtimeType, name, symbol, image, price,
+      numberOfShares, totalPrice, date);
 
   /// Create a copy of StockHold
   /// with the given fields replaced by the non-null parameter values.
@@ -240,6 +257,7 @@ abstract class _StockHold implements StockHold {
   factory _StockHold(
       {required final String name,
       required final String symbol,
+      required final String image,
       required final double price,
       required final double numberOfShares,
       required final double totalPrice,
@@ -252,6 +270,8 @@ abstract class _StockHold implements StockHold {
   String get name;
   @override
   String get symbol;
+  @override
+  String get image;
   @override
   double get price;
   @override
