@@ -17,8 +17,10 @@ ApiClient apiClient(Ref ref, {required APIConfigName apiConfigName}) =>
     ApiClient(apiConfigName: apiConfigName);
 
 class ApiClient {
-  ApiClient({required APIConfigName apiConfigName})
-      : _apiConfigName = apiConfigName {
+  final http.Client _client;
+  ApiClient({required APIConfigName apiConfigName, http.Client? client})
+      : _apiConfigName = apiConfigName,
+        _client = client ?? http.Client() {
     _setHostInfo();
   }
 
@@ -29,22 +31,20 @@ class ApiClient {
   Future<Result<dynamic>> get({required String endpoint}) async {
     try {
       var url = Uri.parse(_host + endpoint);
-      var response = await http.get(url, headers: _authHeader);
+      var response = await _client.get(url, headers: _authHeader);
       final data = await json.decode(response.body);
 
       if (response.statusCode == 200) {
-        if (_apiConfigName == APIConfigName.apininjas && data == []) {
-          throw NotFoundError();
+        if (data is List && data.isEmpty) {
+          return Result.error(NotFoundError());
         }
         return Result.ok(data);
-      } else if (response.statusCode == 401) {
-        return Result.error(UnAuthorisedError());
       } else {
-        return Result.error(ResponseError(data));
+        return Result.error(UnKnownError());
       }
     } catch (error) {
       log.severe(error.toString());
-      rethrow;
+      return Result.error(UnKnownError());
     }
   }
 
