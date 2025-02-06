@@ -1,7 +1,6 @@
 
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:json_annotation/json_annotation.dart';
 
 part '../../../generated/domain/models/stock/stock_search_model.freezed.dart';
 part '../../../generated/domain/models/stock/stock_search_model.g.dart';

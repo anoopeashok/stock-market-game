@@ -19,7 +19,7 @@ class BackgroundExecution {
 
       // Fetch data from server
       try {
-        final data = await apiClient.get; // Your API call
+        final data = apiClient.get; // Your API call
         // Show a notification with the fetched data
         await LocalNotificationService.showNotification(
           "New Update",

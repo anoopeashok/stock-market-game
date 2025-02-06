@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:stock_market_game/domain/entity/popular_stock.dart';
 import 'package:stock_market_game/routing/router.dart';
-import 'package:stock_market_game/ui/stock/stock_tag_view.dart';
 import 'package:stock_market_game/utils/dimensions.dart';
 
 class PopularStockView extends StatelessWidget {

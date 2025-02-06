@@ -86,6 +86,7 @@ class _BuyStockViewState extends ConsumerState<BuyStockView> {
                             _stockCount = double.parse(value!);
                             consideration = widget.fullData.price * _stockCount;
                           });
+                          return null;
                         },
                         onChanged: (value) => setState(() {
                           calcTotalSummary(value);

@@ -7,10 +7,8 @@ import 'package:stock_market_game/ui/market_mover_stock/gainer_loser_info_table.
 import 'package:stock_market_game/ui/market_mover_stock/market_mover_stock_vm.dart';
 import 'package:stock_market_game/ui/market_mover_stock/stock%20search/stock_search_bar.dart';
 import 'package:stock_market_game/ui/market_mover_stock/stock_info_table.dart';
-import 'package:stock_market_game/ui/stock/stock_tag_view.dart';
 import 'package:stock_market_game/utils/dimensions.dart';
 
-import '../../domain/models/performance/top_movers_stocks_model.dart';
 
 class MarketMoverStock extends ConsumerStatefulWidget {
   const MarketMoverStock({super.key});

@@ -17,7 +17,7 @@ class NetworkError implements Exception {
 
 class UnKnownError implements Exception {
   final String message;
-  UnKnownError(this.message);
+  UnKnownError({this.message = "Something went wrong"});
 }
 
 class UnAuthorisedError implements Exception {

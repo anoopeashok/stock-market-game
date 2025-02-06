@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../../domain/entity/stock_information_request.dart';
 import '../../utils/dimensions.dart';

@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:json_annotation/json_annotation.dart';
 
 part '../../../generated/domain/models/stock/stock_hold_model.freezed.dart';
 part '../../../generated/domain/models/stock/stock_hold_model.g.dart';

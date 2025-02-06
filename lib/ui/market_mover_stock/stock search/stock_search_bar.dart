@@ -7,6 +7,8 @@ import 'package:stock_market_game/utils/dimensions.dart';
 import '../../../domain/models/stock/stock_search_model.dart';
 
 class StockSearchbar extends ConsumerWidget {
+  const StockSearchbar({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(stockSearchVMProvider);

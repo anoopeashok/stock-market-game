@@ -1,4 +1,3 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:stock_market_game/data/repository/stock/stock_search_repository.dart';
 import 'package:stock_market_game/domain/models/stock/stock_search_model.dart';

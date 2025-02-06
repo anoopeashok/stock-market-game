@@ -1,3 +1,4 @@
+import 'package:stock_market_game/domain/entity/portfolio_data.dart';
 import 'package:stock_market_game/domain/models/company%20information/company_logo_model.dart';
 import 'package:stock_market_game/domain/models/performance/active_stock_list_model.dart';
 import 'package:stock_market_game/domain/models/stock/stock_data_model.dart';
@@ -18,6 +19,6 @@ class PopularStock {
   double get priceChangePercentage =>
       double.parse(((stockInfo.dailyBar.close - stockInfo.dailyBar.open) / 100)
           .toStringAsFixed(2));
-
+  
   int get tradeCount => activeStockItem.tradeCount;
 }

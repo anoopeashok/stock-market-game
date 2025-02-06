@@ -120,11 +120,11 @@ class StockTopBar extends StatelessWidget {
   CompanyInformation companyInformation;
   double price, priceChange;
   StockTopBar({
-    Key? key,
+    super.key,
     required this.companyInformation,
     required this.price,
     required this.priceChange,
-  }) : super(key: key);
+  });
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -173,17 +173,17 @@ class CompanyInformationView extends StatelessWidget {
   CompanyInformation companyInformation;
   String image;
   CompanyInformationView({
-    Key? key,
+    super.key,
     required this.companyInformation,
     required this.image,
-  }) : super(key: key);
+  });
 
   formatNumber(dynamic myNumber) {
     String stringNumber = myNumber.toString();
 
     double doubleNumber = double.tryParse(stringNumber) ?? 0;
 
-    NumberFormat numberFormat = new NumberFormat.compactLong();
+    NumberFormat numberFormat = NumberFormat.compactLong();
 
     return numberFormat.format(doubleNumber);
   }
