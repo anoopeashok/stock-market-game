@@ -4,6 +4,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:collection/collection.dart';
+
 /// Utility class to wrap result data
 ///
 /// Evaluate the result using a switch statement:
@@ -35,6 +37,16 @@ final class Ok<T> extends Result<T> {
   final T value;
 
   @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Ok<T> &&
+          runtimeType == other.runtimeType &&
+          const DeepCollectionEquality().equals(value, other.value);
+
+  @override
+  int get hashCode => const DeepCollectionEquality().hash(value);
+
+  @override
   String toString() => 'Result<$T>.ok($value)';
 }
 
@@ -44,6 +56,16 @@ final class Error<T> extends Result<T> {
 
   /// Returned error in result
   final Exception error;
+
+    @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Error<T> &&
+          runtimeType == other.runtimeType &&
+          error.toString() == other.error.toString(); // Compare error messages
+
+  @override
+  int get hashCode => error.toString().hashCode;
 
   @override
   String toString() => 'Result<$T>.error($error)';

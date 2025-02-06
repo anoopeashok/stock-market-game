@@ -1,46 +1,62 @@
-import 'dart:convert';
-import 'dart:io';
-
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:http/http.dart' as http;
+import 'package:stock_market_game/data/config/api_config.dart';
+import 'dart:convert';
+
 import 'package:stock_market_game/data/services/api_client.dart';
 import 'package:stock_market_game/utils/app_exceptions.dart';
-import 'package:http/http.dart' as http;
+import 'package:stock_market_game/utils/result.dart';
 
-class MockHttp extends Mock implements http.Client {}
+// Mocking the HTTP client
+class MockHttpClient extends Mock implements http.Client {}
 
-void main() async {
-  late MockHttp mockHttp;
+void main() {
   late ApiClient apiClient;
-  setUp(() {
-    mockHttp = MockHttp();
-    apiClient = ApiClient(host: 'https://api.example.com', client: mockHttp);
+  late MockHttpClient mockHttpClient;
+
+  setUp(() async{
+    await dotenv.load(fileName: ".env");
+    mockHttpClient = MockHttpClient();
+    apiClient = ApiClient(client: mockHttpClient, apiConfigName: APIConfigName.apininjas);
+        registerFallbackValue(Uri.parse('https://example.com'));
+
   });
 
-  group('test get exceptions', () {
-    final uri = Uri.parse('https://api.example.com/test-endpoint');
+  test('returns data when the http call completes successfully', () async {
+    final responseBody = jsonEncode({'key': 'value'});
 
-    test('unauthorised exceptions', () async {
-      when(() => mockHttp.get(uri)).thenAnswer(
-          (_) async => http.Response(jsonEncode({'msg': 'Unauthorized'}), 401));
+    when(() => mockHttpClient.get(any(), headers: any(named: 'headers')))
+        .thenAnswer((_) async => http.Response(responseBody, 200));
 
-      expect(() => apiClient.get(endpoint: '/test-endpoint'),
-          throwsA(isA<UnAuthorisedError>()));
-    });
+    Result<dynamic> result = await apiClient.get(endpoint: '/test-endpoint');
 
-    test('any other exceptions', () {
-      when(() => mockHttp.get(uri)).thenAnswer((_) async =>
-          http.Response(json.encode({'msg': 'Server error'}), 500));
+    expect(result, Result.ok(jsonDecode(responseBody)));
+  });
 
-      expect(() => apiClient.get(endpoint: '/test-endpoint'),
-          throwsA(isA<ResponseError>()));
-    });
+  test(
+      'returns NotFoundError when API returns empty list for APIConfigName.apininjas',
+      () async {
+    final responseBody = jsonEncode([]);
+    final uri = Uri.parse('/test-endpoint');
 
-    test('socket exception', () {
-      when(() => mockHttp.get(uri)).thenThrow(SocketException('No internet'));
+    when(() => mockHttpClient.get(any(), headers: any(named: 'headers')))
+        .thenAnswer((_) async => http.Response(responseBody, 200));
+    var result = await apiClient.get(endpoint: '/test-endpoint');
+    expect(result,
+      Result.error(NotFoundError()),
+    );
+  });
 
-      expect(() => apiClient.get(endpoint: '/test-endpoint'),
-          throwsA(isA<NetworkError>()));
-    });
+  test('returns UnAuthorisedError when API returns 401', () async {
+    final uri = Uri.parse(  '/test-endpoint');
+
+    when(() => mockHttpClient.get(uri, headers: any(named: 'headers')))
+        .thenAnswer((_) async => http.Response('Unauthorized', 401));
+
+    final result = await apiClient.get(endpoint: '/test-endpoint');
+
+    expect(result,Result.error(UnKnownError()));
   });
 }
