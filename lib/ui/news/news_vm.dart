@@ -3,7 +3,7 @@ import 'package:stock_market_game/data/repository/news/news_repository.dart';
 import 'package:stock_market_game/domain/models/news/news_model.dart';
 import 'package:stock_market_game/ui/news/news_state.dart';
 
-import '../../utils/result.dart';
+import '../../core/result.dart';
 part '../../generated/ui/news/news_vm.g.dart';
 
 @riverpod

@@ -6,8 +6,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:stock_market_game/data/model/api_config_model.dart';
 import 'package:stock_market_game/main.dart';
 
-import '../../utils/app_exceptions.dart';
-import '../../utils/result.dart';
+import '../../core/app_exceptions.dart';
+import '../../core/result.dart';
 import '../config/api_config.dart';
 
 part '../../generated/data/services/api_client.g.dart';

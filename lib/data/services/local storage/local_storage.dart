@@ -1,4 +1,4 @@
-import 'package:stock_market_game/utils/result.dart';
+import 'package:stock_market_game/core/result.dart';
 
 
 abstract class LocalStorage {

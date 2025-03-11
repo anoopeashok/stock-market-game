@@ -8,7 +8,7 @@ import 'package:stock_market_game/domain/models/stock/historical_bar.dart';
 import 'package:stock_market_game/domain/models/stock/latest_bar.dart';
 import 'package:stock_market_game/domain/models/stock/multi_historical_bar.dart';
 import 'package:stock_market_game/domain/models/stock/stock_data_model.dart';
-import 'package:stock_market_game/utils/result.dart';
+import 'package:stock_market_game/core/result.dart';
 
 import '../../../domain/models/performance/active_stock_list_model.dart';
 

@@ -3,7 +3,7 @@ import 'package:stock_market_game/domain/entity/portfolio_data.dart';
 import 'package:stock_market_game/domain/entity/stock_information_request.dart';
 import 'package:stock_market_game/domain/usecases/user_stock_history.dart';
 
-import '../../utils/result.dart';
+import '../../core/result.dart';
 part '../../generated/ui/portfolio/portfolio_vm.g.dart';
 
 @riverpod

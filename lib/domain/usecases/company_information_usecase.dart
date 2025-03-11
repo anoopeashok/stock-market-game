@@ -7,7 +7,7 @@ import 'package:stock_market_game/domain/entity/company_full_data.dart';
 import 'package:stock_market_game/domain/models/company%20information/company_information_model.dart';
 import 'package:stock_market_game/domain/models/company%20information/company_logo_model.dart';
 import 'package:stock_market_game/domain/models/stock/latest_bar.dart';
-import 'package:stock_market_game/utils/result.dart';
+import 'package:stock_market_game/core/result.dart';
 
 part '../../generated/domain/usecases/company_information_usecase.g.dart';
 

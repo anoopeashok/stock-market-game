@@ -7,7 +7,7 @@ import 'package:stock_market_game/domain/models/performance/active_stock_list_mo
 import 'package:stock_market_game/domain/models/performance/top_movers_stocks_model.dart';
 
 import 'package:stock_market_game/data/repository/stock/stock_repository.dart';
-import 'package:stock_market_game/utils/result.dart';
+import 'package:stock_market_game/core/result.dart';
 
 import '../../fixtures/fixture_reader.dart';
 

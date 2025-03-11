@@ -4,7 +4,7 @@ import 'package:stock_market_game/data/config/api_config.dart';
 import 'package:stock_market_game/data/repository/repository_helper.dart';
 import 'package:stock_market_game/domain/models/news/news_model.dart';
 
-import '../../../utils/result.dart';
+import '../../../core/result.dart';
 part '../../../generated/data/repository/news/news_repository.g.dart';
 @riverpod
 NewsRepository newsRepository(Ref ref) => NewsRepository(

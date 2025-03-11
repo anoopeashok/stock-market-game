@@ -5,7 +5,7 @@ import 'package:stock_market_game/data/repository/repository_helper.dart';
 
 import '../../../domain/models/stock/condition_codes_model.dart';
 import '../../../domain/models/stock/exchange_codes_model.dart';
-import '../../../utils/result.dart';
+import '../../../core/result.dart';
 
 part '../../../generated/data/repository/stock/stock_metadata_repository.g.dart';
 

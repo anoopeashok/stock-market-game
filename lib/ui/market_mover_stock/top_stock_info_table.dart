@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:stock_market_game/domain/entity/popular_stock.dart';
 import 'package:stock_market_game/ui/stock/stock_tag_view.dart';
-import 'package:stock_market_game/utils/dimensions.dart';
+import 'package:stock_market_game/core/dimensions.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TopStockInfoTable extends StatelessWidget {

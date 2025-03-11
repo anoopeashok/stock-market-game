@@ -4,7 +4,7 @@ import 'package:stock_market_game/data/repository/stock/stock_repository.dart';
 import 'package:stock_market_game/data/repository/stock/trade_stock_repository.dart';
 import 'package:stock_market_game/domain/entity/portfolio_data.dart';
 import 'package:stock_market_game/domain/entity/stock_information_request.dart';
-import 'package:stock_market_game/utils/result.dart';
+import 'package:stock_market_game/core/result.dart';
 
 part '../../generated/domain/usecases/user_stock_history.g.dart';
 

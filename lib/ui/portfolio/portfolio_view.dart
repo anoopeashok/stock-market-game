@@ -8,7 +8,7 @@ import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
 import 'package:stock_market_game/domain/entity/stock_information_request.dart';
 import 'package:stock_market_game/ui/portfolio/portfolio_vm.dart';
-import 'package:stock_market_game/utils/dimensions.dart';
+import 'package:stock_market_game/core/dimensions.dart';
 
 class PortfolioView extends ConsumerStatefulWidget {
   const PortfolioView({super.key});

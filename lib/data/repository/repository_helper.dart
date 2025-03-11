@@ -4,9 +4,9 @@ import 'package:stock_market_game/data/config/api_config.dart';
 import 'package:stock_market_game/data/services/api_client.dart';
 import 'package:stock_market_game/data/services/local%20storage/local_storage.dart';
 import 'package:stock_market_game/data/services/local%20storage/local_storage_client.dart';
-import 'package:stock_market_game/utils/app_exceptions.dart';
+import 'package:stock_market_game/core/app_exceptions.dart';
 
-import '../../utils/result.dart';
+import '../../core/result.dart';
 part '../../generated/data/repository/repository_helper.g.dart';
 
 @riverpod

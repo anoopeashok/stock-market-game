@@ -4,7 +4,7 @@ import 'package:stock_market_game/data/config/api_config.dart';
 import 'package:stock_market_game/data/repository/repository_helper.dart';
 import 'package:stock_market_game/domain/models/stock/stock_search_model.dart';
 
-import '../../../utils/result.dart';
+import '../../../core/result.dart';
 
 part '../../../generated/data/repository/stock/stock_search_repository.g.dart';
 

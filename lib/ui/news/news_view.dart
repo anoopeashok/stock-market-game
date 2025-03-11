@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:stock_market_game/ui/news/news_item.dart';
 import 'package:stock_market_game/ui/news/news_vm.dart';
-import 'package:stock_market_game/utils/dimensions.dart';
+import 'package:stock_market_game/core/dimensions.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NewsView extends ConsumerStatefulWidget {

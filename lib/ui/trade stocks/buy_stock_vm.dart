@@ -3,7 +3,7 @@ import 'package:stock_market_game/data/repository/stock/trade_stock_repository.d
 import 'package:stock_market_game/domain/models/stock/stock_hold_model.dart';
 import 'package:stock_market_game/ui/trade%20stocks/buy_stock_state.dart';
 
-import '../../utils/result.dart';
+import '../../core/result.dart';
 part '../../generated/ui/trade stocks/buy_stock_vm.g.dart';
 
 @riverpod

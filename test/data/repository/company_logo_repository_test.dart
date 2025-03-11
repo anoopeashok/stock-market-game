@@ -5,8 +5,8 @@ import 'package:mocktail/mocktail.dart';
 import 'package:stock_market_game/data/repository/company%20information/company_logo_repository.dart';
 import 'package:stock_market_game/data/repository/repository_helper.dart';
 import 'package:stock_market_game/domain/models/company%20information/company_logo_model.dart';
-import 'package:stock_market_game/utils/app_exceptions.dart';
-import 'package:stock_market_game/utils/result.dart';
+import 'package:stock_market_game/core/app_exceptions.dart';
+import 'package:stock_market_game/core/result.dart';
 
 class MockRepositoryHelper extends Mock implements RepositoryHelper {}
 

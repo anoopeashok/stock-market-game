@@ -4,11 +4,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logging/logging.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:stock_market_game/routing/router.dart';
-import 'package:stock_market_game/utils/provider_observer.dart';
+import 'package:stock_market_game/core/provider_observer.dart';
 
-import 'utils/util.dart';
+import 'core/util.dart';
 
-import 'utils/theme.dart';
+import 'core/theme.dart';
 
 final log = Logger('StockGameLogger');
 

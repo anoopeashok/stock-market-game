@@ -8,7 +8,7 @@ import 'package:stock_market_game/domain/models/economic_indicators/gdp_model.da
 import '../../../domain/models/economic_indicators/interest_rate.dart';
 import '../../../domain/models/economic_indicators/retail_sales_model.dart';
 import '../../../domain/models/economic_indicators/unemployment_rate.dart';
-import '../../../utils/result.dart';
+import '../../../core/result.dart';
 
 part '../../../generated/data/repository/economy/economy_indicators_repository.g.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stock_market_game/domain/models/company%20information/company_logo_model.dart';
-import 'package:stock_market_game/utils/dimensions.dart';
+import 'package:stock_market_game/core/dimensions.dart';
 
 class StockTagView extends StatelessWidget {
   StockTagView({super.key, required this.company});

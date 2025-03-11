@@ -13,7 +13,7 @@ import 'package:stock_market_game/routing/router.dart';
 import 'package:stock_market_game/ui/core/stock_graph.dart';
 import 'package:stock_market_game/ui/stock/stock_detail_vm.dart';
 import 'package:stock_market_game/ui/stock/stock_tag_view.dart';
-import 'package:stock_market_game/utils/dimensions.dart';
+import 'package:stock_market_game/core/dimensions.dart';
 
 import '../trade stocks/buy_stock_view.dart';
 

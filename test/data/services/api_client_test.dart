@@ -6,8 +6,8 @@ import 'package:stock_market_game/data/config/api_config.dart';
 import 'dart:convert';
 
 import 'package:stock_market_game/data/services/api_client.dart';
-import 'package:stock_market_game/utils/app_exceptions.dart';
-import 'package:stock_market_game/utils/result.dart';
+import 'package:stock_market_game/core/app_exceptions.dart';
+import 'package:stock_market_game/core/result.dart';
 
 // Mocking the HTTP client
 class MockHttpClient extends Mock implements http.Client {}

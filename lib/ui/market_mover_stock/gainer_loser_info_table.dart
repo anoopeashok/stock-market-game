@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:stock_market_game/domain/entity/top_market_movers_entity.dart';
 import 'package:stock_market_game/ui/stock/stock_tag_view.dart';
-import 'package:stock_market_game/utils/dimensions.dart';
+import 'package:stock_market_game/core/dimensions.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class GainerLoserInfoTable extends StatelessWidget {

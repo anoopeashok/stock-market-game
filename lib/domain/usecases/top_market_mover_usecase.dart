@@ -5,7 +5,7 @@ import 'package:stock_market_game/data/repository/company%20information/company_
 import 'package:stock_market_game/data/repository/stock/stock_repository.dart';
 import 'package:stock_market_game/domain/models/company%20information/company_logo_model.dart';
 
-import '../../utils/result.dart';
+import '../../core/result.dart';
 import '../entity/top_market_movers_entity.dart';
 import '../models/performance/top_movers_stocks_model.dart';
 
