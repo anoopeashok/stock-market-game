@@ -1,12 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:stock_market_game/data/config/api_config.dart';
+import 'package:stock_market_game/config/api_config.dart';
 import 'package:stock_market_game/data/services/api_client.dart';
 import 'package:stock_market_game/data/services/local%20storage/local_storage.dart';
 import 'package:stock_market_game/data/services/local%20storage/local_storage_client.dart';
-import 'package:stock_market_game/core/app_exceptions.dart';
+import 'package:stock_market_game/core/error/app_exceptions.dart';
 
-import '../../core/result.dart';
+import '../../core/resources/result.dart';
 part '../../generated/data/repository/repository_helper.g.dart';
 
 @riverpod

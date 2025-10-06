@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:stock_market_game/domain/entity/stock_information_request.dart';
+import 'package:stock_market_game/domain/entity/stock/stock_information_request.dart';
 import 'package:stock_market_game/ui/stock/stock_detail_vm.dart';
-import 'package:stock_market_game/core/dimensions.dart';
+import 'package:stock_market_game/config/dimensions.dart';
 import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
 class StockGraph extends ConsumerStatefulWidget {

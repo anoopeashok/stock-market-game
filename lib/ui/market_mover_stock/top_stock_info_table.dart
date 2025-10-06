@@ -1,10 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
 import 'package:flutter/material.dart';
-import 'package:stock_market_game/domain/entity/popular_stock.dart';
+import 'package:stock_market_game/domain/entity/stock/popular_stock.dart';
+import 'package:stock_market_game/l10n/app_localizations.dart';
 import 'package:stock_market_game/ui/stock/stock_tag_view.dart';
-import 'package:stock_market_game/core/dimensions.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:stock_market_game/config/dimensions.dart';
 
 class TopStockInfoTable extends StatelessWidget {
   final List<PopularStock> popularStockList;

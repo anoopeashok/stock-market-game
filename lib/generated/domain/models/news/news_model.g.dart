@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../../../domain/models/news/news_model.dart';
+part of '../../../../data/models/news/news_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

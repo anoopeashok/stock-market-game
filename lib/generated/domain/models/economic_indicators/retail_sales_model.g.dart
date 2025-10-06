@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../../../domain/models/economic_indicators/retail_sales_model.dart';
+part of '../../../../data/models/economic_indicators/retail_sales_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

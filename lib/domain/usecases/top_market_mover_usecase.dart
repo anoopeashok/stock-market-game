@@ -3,11 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:stock_market_game/data/repository/company%20information/company_logo_repository.dart';
 import 'package:stock_market_game/data/repository/stock/stock_repository.dart';
-import 'package:stock_market_game/domain/models/company%20information/company_logo_model.dart';
+import 'package:stock_market_game/data/models/company%20information/company_logo_model.dart';
 
-import '../../core/result.dart';
-import '../entity/top_market_movers_entity.dart';
-import '../models/performance/top_movers_stocks_model.dart';
+import '../../core/resources/result.dart';
+import '../entity/stock/top_market_movers_entity.dart';
+import '../../data/models/performance/top_movers_stocks_model.dart';
 
 part '../../generated/domain/usecases/top_market_mover_usecase.g.dart';
 

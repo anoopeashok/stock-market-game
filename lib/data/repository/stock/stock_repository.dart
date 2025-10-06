@@ -1,16 +1,16 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:stock_market_game/data/config/api_config.dart';
+import 'package:stock_market_game/config/api_config.dart';
 import 'package:stock_market_game/data/repository/repository_helper.dart';
-import 'package:stock_market_game/domain/entity/stock_information_request.dart';
-import 'package:stock_market_game/domain/models/performance/top_movers_stocks_model.dart';
-import 'package:stock_market_game/domain/models/stock/historical_bar.dart';
-import 'package:stock_market_game/domain/models/stock/latest_bar.dart';
-import 'package:stock_market_game/domain/models/stock/multi_historical_bar.dart';
-import 'package:stock_market_game/domain/models/stock/stock_data_model.dart';
-import 'package:stock_market_game/core/result.dart';
+import 'package:stock_market_game/domain/entity/stock/stock_information_request.dart';
+import 'package:stock_market_game/data/models/performance/top_movers_stocks_model.dart';
+import 'package:stock_market_game/data/models/stock/historical_bar.dart';
+import 'package:stock_market_game/data/models/stock/latest_bar.dart';
+import 'package:stock_market_game/data/models/stock/multi_historical_bar.dart';
+import 'package:stock_market_game/data/models/stock/stock_data_model.dart';
+import 'package:stock_market_game/core/resources/result.dart';
 
-import '../../../domain/models/performance/active_stock_list_model.dart';
+import '../../models/performance/active_stock_list_model.dart';
 
 part '../../../generated/data/repository/stock/stock_repository.g.dart';
 

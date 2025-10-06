@@ -1,9 +1,9 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:stock_market_game/data/repository/news/news_repository.dart';
-import 'package:stock_market_game/domain/models/news/news_model.dart';
+import 'package:stock_market_game/data/models/news/news_model.dart';
 import 'package:stock_market_game/ui/news/news_state.dart';
 
-import '../../core/result.dart';
+import '../../core/resources/result.dart';
 part '../../generated/ui/news/news_vm.g.dart';
 
 @riverpod

@@ -3,12 +3,12 @@ import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:stock_market_game/data/model/api_config_model.dart';
+import 'package:stock_market_game/config/api_config_model.dart';
 import 'package:stock_market_game/main.dart';
 
-import '../../core/app_exceptions.dart';
-import '../../core/result.dart';
-import '../config/api_config.dart';
+import '../../core/error/app_exceptions.dart';
+import '../../core/resources/result.dart';
+import '../../config/api_config.dart';
 
 part '../../generated/data/services/api_client.g.dart';
 

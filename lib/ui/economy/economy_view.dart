@@ -1,12 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:stock_market_game/domain/entity/econnomy_information.dart';
+import 'package:stock_market_game/domain/entity/economic_indicators/econnomy_information.dart';
 import 'package:stock_market_game/ui/economy/economy_vm.dart';
-import 'package:stock_market_game/core/dimensions.dart';
+import 'package:stock_market_game/config/dimensions.dart';
 
+import '../../l10n/app_localizations.dart';
 import '../core/auto_scroll_led_text.dart';
 
 class EconomyView extends ConsumerStatefulWidget {

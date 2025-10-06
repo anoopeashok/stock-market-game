@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:stock_market_game/ui/core/custom_tabs.dart';
 import 'package:stock_market_game/ui/economy/economy_view.dart';
 import 'package:stock_market_game/ui/market_mover_stock/market_mover_stock.dart';
 import 'package:stock_market_game/ui/news/news_view.dart';
 import 'package:stock_market_game/ui/portfolio/portfolio_view.dart';
+
+import '../../l10n/app_localizations.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});

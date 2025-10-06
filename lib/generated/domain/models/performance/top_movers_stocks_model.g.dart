@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../../../domain/models/performance/top_movers_stocks_model.dart';
+part of '../../../../data/models/performance/top_movers_stocks_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

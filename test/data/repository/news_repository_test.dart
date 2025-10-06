@@ -2,8 +2,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:stock_market_game/data/repository/news/news_repository.dart';
 import 'package:stock_market_game/data/repository/repository_helper.dart';
-import 'package:stock_market_game/domain/models/news/news_model.dart';
-import 'package:stock_market_game/core/result.dart';
+import 'package:stock_market_game/data/models/news/news_model.dart';
+import 'package:stock_market_game/core/resources/result.dart';
 
 class MockRepositoryHelper extends Mock implements RepositoryHelper {}
 

@@ -1,9 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:stock_market_game/core/result.dart';
+import 'package:stock_market_game/core/resources/result.dart';
 
-import '../../../domain/models/company information/company_logo_model.dart';
-import '../../config/api_config.dart';
+import '../../models/company information/company_logo_model.dart';
+import '../../../config/api_config.dart';
 import '../repository_helper.dart';
 
 part '../../../generated/data/repository/company information/company_logo_repository.g.dart';
@@ -19,10 +19,10 @@ class CompanyLogoRepository {
   CompanyLogoRepository({required RepositoryHelper repositoryHelper})
       : _repositoryHelper = repositoryHelper;
 
-  Future<Result<Company>> getCompanyLogos(String symbol) async {
+  Future<Result<CompanyLogoModel>> getCompanyLogos(String symbol) async {
     String endpoint = '/v1/logo?ticker=$symbol';
     return await _repositoryHelper.fetchData(
         endpoint: endpoint,
-        fromJson: (json) => Company.fromJson(json));
+        fromJson: (json) => CompanyLogoModel.fromJson(json));
   }
 }

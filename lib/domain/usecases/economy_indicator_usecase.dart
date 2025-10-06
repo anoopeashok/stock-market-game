@@ -1,9 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:stock_market_game/data/repository/economy/economy_indicators_repository.dart';
-import 'package:stock_market_game/core/result.dart';
+import 'package:stock_market_game/core/resources/result.dart';
 
-import '../entity/econnomy_information.dart';
+import '../entity/economic_indicators/econnomy_information.dart';
 
 part '../../generated/domain/usecases/economy_indicator_usecase.g.dart';
 

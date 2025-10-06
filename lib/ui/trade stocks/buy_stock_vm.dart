@@ -1,9 +1,9 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:stock_market_game/data/repository/stock/trade_stock_repository.dart';
-import 'package:stock_market_game/domain/models/stock/stock_hold_model.dart';
+import 'package:stock_market_game/data/models/stock/stock_hold_model.dart';
 import 'package:stock_market_game/ui/trade%20stocks/buy_stock_state.dart';
 
-import '../../core/result.dart';
+import '../../core/resources/result.dart';
 part '../../generated/ui/trade stocks/buy_stock_vm.g.dart';
 
 @riverpod

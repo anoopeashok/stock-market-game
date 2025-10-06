@@ -1,8 +1,8 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:stock_market_game/data/repository/stock/stock_search_repository.dart';
-import 'package:stock_market_game/domain/models/stock/stock_search_model.dart';
+import 'package:stock_market_game/data/models/stock/stock_search_model.dart';
 
-import '../../../core/result.dart';
+import '../../../core/resources/result.dart';
 part '../../../generated/ui/market_mover_stock/stock search/stock_search_vm.g.dart';
 
 @riverpod

@@ -2,12 +2,12 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:http/http.dart' as http;
-import 'package:stock_market_game/data/config/api_config.dart';
+import 'package:stock_market_game/config/api_config.dart';
 import 'dart:convert';
 
 import 'package:stock_market_game/data/services/api_client.dart';
-import 'package:stock_market_game/core/app_exceptions.dart';
-import 'package:stock_market_game/core/result.dart';
+import 'package:stock_market_game/core/error/app_exceptions.dart';
+import 'package:stock_market_game/core/resources/result.dart';
 
 // Mocking the HTTP client
 class MockHttpClient extends Mock implements http.Client {}

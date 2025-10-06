@@ -2,9 +2,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:stock_market_game/data/services/local%20storage/local_storage.dart';
 import 'package:stock_market_game/data/services/local%20storage/local_storage_client.dart';
-import 'package:stock_market_game/domain/models/stock/stock_hold_model.dart';
-import 'package:stock_market_game/core/app_exceptions.dart';
-import 'package:stock_market_game/core/result.dart';
+import 'package:stock_market_game/data/models/stock/stock_hold_model.dart';
+import 'package:stock_market_game/core/error/app_exceptions.dart';
+import 'package:stock_market_game/core/resources/result.dart';
 part '../../../generated/data/repository/stock/trade_stock_repository.g.dart';
 
 @riverpod

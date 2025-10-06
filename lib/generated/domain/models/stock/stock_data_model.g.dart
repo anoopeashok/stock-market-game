@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../../../domain/models/stock/stock_data_model.dart';
+part of '../../../../data/models/stock/stock_data_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

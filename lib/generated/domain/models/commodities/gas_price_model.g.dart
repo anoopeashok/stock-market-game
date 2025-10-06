@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../../../domain/models/commodities/gas_price_model.dart';
+part of '../../../../data/models/commodities/gas_price_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

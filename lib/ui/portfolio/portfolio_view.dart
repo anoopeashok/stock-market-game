@@ -1,14 +1,14 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:stock_market_game/l10n/app_localizations.dart';
 import 'package:stock_market_game/ui/core/timeframe_selection_view.dart';
 import 'package:stock_market_game/ui/portfolio/stock_tile_view.dart';
 import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
-import 'package:stock_market_game/domain/entity/stock_information_request.dart';
+import 'package:stock_market_game/domain/entity/stock/stock_information_request.dart';
 import 'package:stock_market_game/ui/portfolio/portfolio_vm.dart';
-import 'package:stock_market_game/core/dimensions.dart';
+import 'package:stock_market_game/config/dimensions.dart';
 
 class PortfolioView extends ConsumerStatefulWidget {
   const PortfolioView({super.key});

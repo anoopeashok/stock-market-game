@@ -1,25 +1,26 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:stock_market_game/data/config/api_config.dart';
+import 'package:stock_market_game/config/api_config.dart';
 import 'package:stock_market_game/data/repository/repository_helper.dart';
-import 'package:stock_market_game/domain/models/economic_indicators/cpi_model.dart';
-import 'package:stock_market_game/domain/models/economic_indicators/gdp_model.dart';
+import 'package:stock_market_game/data/models/economic_indicators/cpi_model.dart';
+import 'package:stock_market_game/data/models/economic_indicators/gdp_model.dart';
 
-import '../../../domain/models/economic_indicators/interest_rate.dart';
-import '../../../domain/models/economic_indicators/retail_sales_model.dart';
-import '../../../domain/models/economic_indicators/unemployment_rate.dart';
-import '../../../core/result.dart';
+import '../../../domain/repository/economy_indicator/economy_indicator_repository.dart';
+import '../../models/economic_indicators/interest_rate.dart';
+import '../../models/economic_indicators/retail_sales_model.dart';
+import '../../models/economic_indicators/unemployment_rate.dart';
+import '../../../core/resources/result.dart';
 
 part '../../../generated/data/repository/economy/economy_indicators_repository.g.dart';
 
 @riverpod
-EconomyIndicatorsRepository economyIndicatorsRepository(Ref ref) =>
-    EconomyIndicatorsRepository(
+EconomyIndicatorRepository economyIndicatorsRepository(Ref ref) =>
+    EconomyIndicatorsRepositoryImpl(
         repositoryHelper: ref.read(repositoryHelperProvider(apiConfigName: APIConfigName.alphavantage)));
 
-class EconomyIndicatorsRepository {
+class EconomyIndicatorsRepositoryImpl extends EconomyIndicatorRepository {
   final RepositoryHelper _repositoryHelper;
-  EconomyIndicatorsRepository({required RepositoryHelper repositoryHelper})
+  EconomyIndicatorsRepositoryImpl({required RepositoryHelper repositoryHelper})
       : _repositoryHelper = repositoryHelper;
 
   Future<Result<GdpModel>> getGDPPerCapita() async {
@@ -34,6 +35,7 @@ class EconomyIndicatorsRepository {
         endpoint: endpoint, fromJson: (json) => CPIModel.fromJson(json));
   }
 
+  @override
   Future<Result<FederalFundsRateModel>> getInterestRate() async {
     String endpoint = "&function=FEDERAL_FUNDS_RATE&interval=weekly";
     return _repositoryHelper.fetchData(

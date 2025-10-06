@@ -4,8 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stock_market_game/data/services/local%20storage/local_storage.dart';
-import 'package:stock_market_game/core/app_exceptions.dart';
-import 'package:stock_market_game/core/result.dart';
+import 'package:stock_market_game/core/error/app_exceptions.dart';
+import 'package:stock_market_game/core/resources/result.dart';
 
 part '../../../generated/data/services/local storage/local_storage_client.g.dart';
 

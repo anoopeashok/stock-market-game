@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../domain/entity/stock_information_request.dart';
-import '../../core/dimensions.dart';
+import '../../domain/entity/stock/stock_information_request.dart';
+import '../../config/dimensions.dart';
 
 class TimeframeSelectionView extends StatefulWidget {
   TimeframeSelectionView({super.key, required this.selectedTimeFrame});

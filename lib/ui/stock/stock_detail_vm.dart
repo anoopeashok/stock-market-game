@@ -1,12 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:stock_market_game/data/repository/stock/stock_repository.dart';
-import 'package:stock_market_game/domain/entity/company_full_data.dart';
-import 'package:stock_market_game/domain/entity/stock_information_request.dart';
+import 'package:stock_market_game/domain/entity/company_information/company_full_data.dart';
+import 'package:stock_market_game/domain/entity/stock/stock_information_request.dart';
 import 'package:stock_market_game/domain/usecases/company_information_usecase.dart';
-import 'package:stock_market_game/core/result.dart';
+import 'package:stock_market_game/core/resources/result.dart';
 
-import '../../domain/models/stock/historical_bar.dart';
+import '../../data/models/stock/historical_bar.dart';
 
 part '../../generated/ui/stock/stock_detail_vm.g.dart';
 

@@ -1,10 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:stock_market_game/data/config/api_config.dart';
+import 'package:stock_market_game/config/api_config.dart';
 import 'package:stock_market_game/data/repository/repository_helper.dart';
-import 'package:stock_market_game/domain/models/stock/stock_search_model.dart';
+import 'package:stock_market_game/data/models/stock/stock_search_model.dart';
 
-import '../../../core/result.dart';
+import '../../../core/resources/result.dart';
 
 part '../../../generated/data/repository/stock/stock_search_repository.g.dart';
 

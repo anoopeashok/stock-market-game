@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:stock_market_game/data/config/api_config.dart';
+import 'package:stock_market_game/config/api_config.dart';
 import 'package:stock_market_game/data/services/api_client.dart';
 import 'package:stock_market_game/data/services/local%20notification/local_notification_service.dart';
 import 'package:workmanager/workmanager.dart';

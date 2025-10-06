@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
-import 'package:stock_market_game/domain/entity/company_full_data.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:stock_market_game/domain/entity/company_information/company_full_data.dart';
 
-import 'package:stock_market_game/domain/entity/stock_information_request.dart';
-import 'package:stock_market_game/domain/models/company%20information/company_information_model.dart';
-import 'package:stock_market_game/domain/models/company%20information/company_logo_model.dart';
-import 'package:stock_market_game/routing/router.dart';
+import 'package:stock_market_game/domain/entity/stock/stock_information_request.dart';
+import 'package:stock_market_game/data/models/company%20information/company_information_model.dart';
+import 'package:stock_market_game/data/models/company%20information/company_logo_model.dart';
+import 'package:stock_market_game/l10n/app_localizations.dart';
+import 'package:stock_market_game/config/routing/router.dart';
 import 'package:stock_market_game/ui/core/stock_graph.dart';
 import 'package:stock_market_game/ui/stock/stock_detail_vm.dart';
 import 'package:stock_market_game/ui/stock/stock_tag_view.dart';
-import 'package:stock_market_game/core/dimensions.dart';
+import 'package:stock_market_game/config/dimensions.dart';
 
 import '../trade stocks/buy_stock_view.dart';
 

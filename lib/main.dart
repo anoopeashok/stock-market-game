@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logging/logging.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:stock_market_game/routing/router.dart';
-import 'package:stock_market_game/core/provider_observer.dart';
+import 'package:stock_market_game/l10n/app_localizations.dart';
+import 'package:stock_market_game/config/routing/router.dart';
+import 'package:stock_market_game/core/resources/provider_observer.dart';
 
 import 'core/util.dart';
 
-import 'core/theme.dart';
+import 'config/theme.dart';
 
 final log = Logger('StockGameLogger');
 

@@ -1,8 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
 import 'package:flutter/material.dart';
-import 'package:stock_market_game/domain/entity/portfolio_data.dart';
-import 'package:stock_market_game/domain/models/company%20information/company_logo_model.dart';
+import 'package:stock_market_game/domain/entity/portfolio/portfolio_data.dart';
+import 'package:stock_market_game/data/models/company%20information/company_logo_model.dart';
 import 'package:stock_market_game/ui/stock/stock_tag_view.dart';
 
 class StockTileView extends StatelessWidget {

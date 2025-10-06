@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../../../domain/models/crypto/crypto_latest_quote_model.dart';
+part of '../../../../data/models/crypto/crypto_latest_quote_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

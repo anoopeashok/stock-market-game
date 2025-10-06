@@ -3,11 +3,11 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:stock_market_game/data/repository/repository_helper.dart';
-import 'package:stock_market_game/domain/models/performance/active_stock_list_model.dart';
-import 'package:stock_market_game/domain/models/performance/top_movers_stocks_model.dart';
+import 'package:stock_market_game/data/models/performance/active_stock_list_model.dart';
+import 'package:stock_market_game/data/models/performance/top_movers_stocks_model.dart';
 
 import 'package:stock_market_game/data/repository/stock/stock_repository.dart';
-import 'package:stock_market_game/core/result.dart';
+import 'package:stock_market_game/core/resources/result.dart';
 
 import '../../fixtures/fixture_reader.dart';
 

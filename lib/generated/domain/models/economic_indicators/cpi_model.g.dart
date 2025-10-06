@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../../../domain/models/economic_indicators/cpi_model.dart';
+part of '../../../../data/models/economic_indicators/cpi_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

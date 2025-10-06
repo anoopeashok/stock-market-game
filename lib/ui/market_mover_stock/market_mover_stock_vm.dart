@@ -1,10 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:stock_market_game/domain/entity/popular_stock.dart';
-import 'package:stock_market_game/domain/entity/top_market_movers_entity.dart';
+import 'package:stock_market_game/domain/entity/stock/popular_stock.dart';
+import 'package:stock_market_game/domain/entity/stock/top_market_movers_entity.dart';
 import 'package:stock_market_game/domain/usecases/popular_stocks_usecase.dart';
 import 'package:stock_market_game/domain/usecases/top_market_mover_usecase.dart';
-import 'package:stock_market_game/core/result.dart';
+import 'package:stock_market_game/core/resources/result.dart';
 
 part '../../generated/ui/market_mover_stock/market_mover_stock_vm.g.dart';
 

@@ -1,13 +1,14 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:stock_market_game/ui/market_mover_stock/gainer_loser_info_table.dart';
 import 'package:stock_market_game/ui/market_mover_stock/market_mover_stock_vm.dart';
 import 'package:stock_market_game/ui/market_mover_stock/stock%20search/stock_search_bar.dart';
 import 'package:stock_market_game/ui/market_mover_stock/stock_info_table.dart';
-import 'package:stock_market_game/core/dimensions.dart';
+import 'package:stock_market_game/config/dimensions.dart';
+
+import '../../l10n/app_localizations.dart';
 
 
 class MarketMoverStock extends ConsumerStatefulWidget {

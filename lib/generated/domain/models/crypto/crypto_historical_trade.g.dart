@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../../../domain/models/crypto/crypto_historical_trade.dart';
+part of '../../../../data/models/crypto/crypto_historical_trade.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

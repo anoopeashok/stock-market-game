@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../../../domain/models/stock/condition_codes_model.dart';
+part of '../../../../data/models/stock/condition_codes_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

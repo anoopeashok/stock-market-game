@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import 'package:stock_market_game/domain/entity/company_full_data.dart';
-import 'package:stock_market_game/domain/models/stock/stock_hold_model.dart';
+import 'package:stock_market_game/domain/entity/company_information/company_full_data.dart';
+import 'package:stock_market_game/data/models/stock/stock_hold_model.dart';
+import 'package:stock_market_game/l10n/app_localizations.dart';
 import 'package:stock_market_game/ui/trade%20stocks/buy_stock_vm.dart';
-import 'package:stock_market_game/core/dimensions.dart';
+import 'package:stock_market_game/config/dimensions.dart';
 
 void showBuyStockBottomSheet(
     {required BuildContext context, required CompanyFullData fullData}) {

@@ -1,7 +1,7 @@
 
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:stock_market_game/domain/models/news/news_model.dart';
+import 'package:stock_market_game/data/models/news/news_model.dart';
 
 part '../../generated/ui/news/news_state.freezed.dart';
 
